@@ -1,12 +1,12 @@
-Delo z low-level binarnimi podatki v Rustu je zanimiva tema. Rust omogoča direktno manipulacijo s pomnilnikom in binarnimi podatki, hkrati pa zagotavlja varnost. V tej lekciji se bomo osredotočili na osnove dela z binarnimi podatki v Rust-u.
+Delo z low-level (nizkonivojskimi) binarnimi podatki v Rustu je zanimiva tema. Rust omogoča direktno manipulacijo s pomnilnikom in binarnimi podatki, hkrati pa zagotavlja varnost. V tej lekciji se bomo osredotočili na osnove dela z binarnimi podatki v Rust-u.
 
 ### 1. Osnove binarnih podatkov
 
-Binarni podatki so zapisani v obliki bitov (0 in 1). V Rustu lahko delamo z binarnimi podatki z uporabo različnih tipov, kot so `u8`, `u16`, `u32`, `u64`, itd., ki predstavljajo nepredznačene cele številke različnih velikosti.
+Binarni podatki so zapisani v obliki bitov (0 in 1). V Rust-u lahko delamo z binarnimi podatki z uporabo različnih tipov, kot so `u8`, `u16`, `u32`, `u64`, itd., ki predstavljajo nepredznačene cele številke različnih velikosti.
 
 ### 2. Delo z bajti (`u8`)
 
-Najosnovnejša enota binarnih podatkov je bajt, ki ga v Rustu predstavlja tip `u8`. Bajt je 8-bitno število, ki lahko zavzame vrednosti od 0 do 255.
+Najosnovnejša enota binarnih podatkov je bajt, ki ga v Rust-u predstavlja tip `u8`. Bajt je 8-bitno število, ki lahko zavzame vrednosti od 0 do 255.
 
 ```rust
 fn main() {
@@ -100,7 +100,7 @@ fn main() {
 
 ### 8. Nevarni bloki (`unsafe`)
 
-Včasih boste morda morali delati direktno s pomnilnikom, kar v Rustu zahteva uporabo `unsafe` blokov. To je napredna tema, zato bodite previdni.
+Včasih boste morda morali delati direktno s pomnilnikom, kar v Rust-u zahteva uporabo `unsafe` blokov. To je napredna tema, zato bodite previdni.
 
 ```rust
 fn main() {
@@ -117,5 +117,4 @@ fn main() {
 
 ### Zaključek
 
-Delo z binarnimi podatki v Rustu je močno orodje, ki omogoča nizkonivojsko optimizacijo in kontrolo nad podatki. Vendar pa je pomembno biti previden, saj lahko neprevidna manipulacija s pomnilnikom povzroči napake. Rustova varnostna mehanizmi, kot so lastništvo in preverjanje meja, vam pomagajo preprečiti pogoste napake.
-
+Delo z binarnimi podatki v Rust-u je močno orodje, ki omogoča nizkonivojsko optimizacijo in kontrolo nad podatki. Vendar pa je pomembno biti previden, saj lahko neprevidna manipulacija s pomnilnikom povzroči napake. Rust-ovi varnostni mehanizmi, kot so lastništvo in preverjanje meja, vam pomagajo preprečiti pogoste napake.
