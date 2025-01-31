@@ -1,6 +1,6 @@
 Naučimo se osnov standardne knjižnice (Std Library) v programskem jeziku Rust. Rust je sistemski programski jezik, ki poudarja varnost, hitrost in sočasnost. Standardna knjižnica Rust ponuja številne uporabne module in funkcije, ki olajšajo razvoj aplikacij.
 
-### Osnove Standardne Knjižnice v Rustu
+### Osnove Standardne Knjižnice v Rust-u
 
 1. **`std::fmt`** - Formatiranje izpisa
    - `println!` - Izpiše vrednosti v konzolo.
@@ -82,4 +82,4 @@ Naučimo se osnov standardne knjižnice (Std Library) v programskem jeziku Rust.
 
 ### Zaključek
 
-To so le osnove standardne knjižnice Rust. Rustova standardna knjižnica je zelo obsežna in ponuja številne druge module in funkcije za različne namene. Za bolj podrobno razumevanje priporočam, da si ogledate uradno dokumentacijo Rust: [Rust Documentation](https://doc.rust-lang.org/std/).
+To so le osnove standardne knjižnice Rust. Rust-ova standardna knjižnica je zelo obsežna in ponuja številne druge module in funkcije za različne namene. Za bolj podrobno razumevanje priporočam, da si ogledate uradno dokumentacijo Rust: [Rust Documentation](https://doc.rust-lang.org/std/).
