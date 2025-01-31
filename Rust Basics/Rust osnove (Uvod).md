@@ -53,7 +53,7 @@ fn main() {
 #### Podatkovni tipi
 Rust ima močno statično tipizacijo. Nekaj osnovnih tipov:
 
-- Celostevilski tipi: `i32`, `u32`, `i64`, `u64`, itd.
+- Celoštevilski tipi: `i32`, `u32`, `i64`, `u64`, itd.
 - Plavajoča vejica: `f32`, `f64`
 - Logični tip: `bool`
 - Znaki: `char`
