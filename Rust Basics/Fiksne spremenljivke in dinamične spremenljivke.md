@@ -1,7 +1,3 @@
-Seveda! Naučimo se o **fiksno velikih spremenljivkah** in **dinamično velikih spremenljivkah** v Rustu. Razlaga bo v slovenščini, s primeri za boljše razumevanje.
-
----
-
 ### **Fiksno velike spremenljivke**
 Fiksno velike spremenljivke imajo velikost, ki je znana že v času prevajanja (compile time). To pomeni, da prevajalnik ve, koliko pomnilnika bo potreboval za shranjevanje te spremenljivke. Primeri takih spremenljivk so:
 
@@ -51,13 +47,13 @@ V tem primeru sta `niz` in `vektor` dinamično velika, saj se njihova velikost l
 ---
 
 ### **Ključne razlike**
-| Značilnost               | Fiksno velike spremenljivke         | Dinamično velike spremenljivke       |
-|--------------------------|-------------------------------------|--------------------------------------|
-| **Velikost**             | Znana v času prevajanja            | Znana šele med izvajanjem programa   |
-| **Primeri**              | `i32`, `bool`, `char`, `[T; N]`    | `String`, `Vec<T>`, `HashMap<K, V>` |
-| **Skladiščenje**         | Na skladu (stack)                  | Na kopici (heap)                    |
-| **Hitrost dostopa**      | Hitrejši dostop                    | Počasnejši dostop                   |
-| **Fleksibilnost**        | Manj fleksibilne                   | Bolj fleksibilne                    |
+| Značilnost          | Fiksno velike spremenljivke     | Dinamično velike spremenljivke      |
+| ------------------- | ------------------------------- | ----------------------------------- |
+| **Velikost**        | Znana v času prevajanja         | Znana šele med izvajanjem programa  |
+| **Primeri**         | `i32`, `bool`, `char`, `[T; N]` | `String`, `Vec<T>`, `HashMap<K, V>` |
+| **Skladiščenje**    | Stack                           | Heap                                |
+| **Hitrost dostopa** | Hitrejši dostop                 | Počasnejši dostop                   |
+| **Fleksibilnost**   | Manj fleksibilne                | Bolj fleksibilne                    |
 
 ---
 
@@ -96,7 +92,7 @@ fn main() {
 ---
 
 ### **Pomembno o lastništvu (ownership)**
-V Rustu je pomnilniško varno delo z dinamično velikimi spremenljivkami zaradi sistema lastništva. Na primer:
+V Rust-u je delo z dinamično velikimi spremenljivkami zaradi sistema lastništva varno. Na primer:
 - Ko prenesete lastništvo dinamično velike spremenljivke, se originalna spremenljivka ne more več uporabljati.
 - Če želite deliti podatke, uporabite reference (`&`).
 
@@ -121,7 +117,7 @@ fn pozdravi(niz: &String) {
 ---
 
 ### **Zaključek**
-- **Fiksno velike spremenljivke** so hitrejše in varno za uporabo, ko je velikost znana vnaprej.
+- **Fiksno velike spremenljivke** so hitrejše in varne za uporabo, ker je velikost znana vnaprej.
 - **Dinamično velike spremenljivke** so fleksibilne in omogočajo delo s podatki, katerih velikost se spreminja.
 
 Z vajo in uporabo teh konceptov v praksi boš hitro obvladal Rust! 🚀
