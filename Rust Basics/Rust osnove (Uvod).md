@@ -122,11 +122,11 @@ fn main() {
 ```
 
 #### Lastništvo in izposoja
-Ena najpomembnejših lastnosti Rusta je sistem lastništva (`ownership`), ki zagotavlja varnost s spominom brez uporabe garbage collectora.
+Ena najpomembnejših lastnosti Rust-a je sistem lastništva (`ownership`), ki zagotavlja varnost pri upravljanju s spominom brez uporabe garbage collector-ja.
 
 - Vsaka vrednost ima lastnika.
 - Vrednost ima lahko samo enega lastnika naenkrat.
-- Ko lastnik zapusti obseg, se vrednost sprosti.
+- Ko lastništvo vrednosti zapusti območje funkcije (oglate oklepaje), se vrednost izbriše iz spomina.
 
 ```rust
 fn main() {
@@ -143,7 +143,7 @@ Izposoja (`borrowing`) omogoča, da se vrednost posodi brez prevzema lastništva
 ```rust
 fn main() {
     let s1 = String::from("Pozdravljen");
-    let dolzina = izracunaj_dolzino(&s1); // Posodamo s1
+    let dolzina = izracunaj_dolzino(&s1); // Posojamo s1
     println!("Dolžina '{}' je {}.", s1, dolzina);
 }
 
