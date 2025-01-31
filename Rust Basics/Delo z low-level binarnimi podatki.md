@@ -1,4 +1,4 @@
-Delo z low-level in binarnimi podatki v Rustu je zanimiva tema. Rust omogoča direktno manipulacijo s pomnilnikom in binarnimi podatki, hkrati pa zagotavlja varnost. V tej lekciji se bomo osredotočili na osnove dela z binarnimi podatki v Rust-u.
+Delo z low-level binarnimi podatki v Rustu je zanimiva tema. Rust omogoča direktno manipulacijo s pomnilnikom in binarnimi podatki, hkrati pa zagotavlja varnost. V tej lekciji se bomo osredotočili na osnove dela z binarnimi podatki v Rust-u.
 
 ### 1. Osnove binarnih podatkov
 
