@@ -8,11 +8,11 @@ Fiksno velike spremenljivke imajo velikost, ki je znana že v času prevajanja (
 ```rust
 fn main() {
     let stevilo: i32 = 42; // i32 ima fiksno velikost 4 bajte
-    let resnica: bool = true; // bool ima fiksno velikost 1 bajt
+    let bool: bool = true; // bool ima fiksno velikost 1 bajt
     let znak: char = 'R'; // char ima fiksno velikost 4 bajte
     let tabela: [i32; 3] = [1, 2, 3]; // Tabela ima fiksno velikost 3 elemente
 
-    println!("stevilo = {}, resnica = {}, znak = {}", stevilo, resnica, znak);
+    println!("stevilo = {}, bool = {}, znak = {}", stevilo, bool, znak);
     println!("tabela = {:?}", tabela);
 }
 ```
@@ -98,19 +98,18 @@ V Rust-u je delo z dinamično velikimi spremenljivkami zaradi sistema lastništv
 
 #### Primer:
 ```rust
-fn main() {
-    let niz1 = String::from("Zdravo"); // Dinamično velik niz
-    let niz2 = niz1; // Lastništvo se prenese na niz2
-    // println!("{}", niz1); // To bi povzročilo napako
-    println!("{}", niz2);
-
-    let niz3 = String::from("Svet");
-    pozdravi(&niz3); // Posredujemo referenco
-    println!("{}", niz3); // niz3 je še vedno veljaven
-}
-
-fn pozdravi(niz: &String) {
-    println!("Pozdravljen, {}!", niz);
+fn main() {  
+    let niz1 = String::from("Lep dan želim."); // Dinamično velik niz  
+    let niz2 = niz1; // Lastništvo se prenese na niz2  
+                     // println!("{}", niz1); // To bi povzročilo napako    println!("{}", niz2);  
+  
+    let niz3 = String::from("AI Inženir");  
+    pozdrav(&niz3); // Posredujemo referenco  
+    println!("{}", niz3); // niz3 je še vedno veljaven  
+}  
+  
+fn pozdrav(niz: &String) {  
+    println!("Pozdravljen, {}!", niz);  
 }
 ```
 
