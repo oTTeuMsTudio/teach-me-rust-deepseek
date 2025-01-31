@@ -40,7 +40,7 @@ let pi = 3.141_592_653_59; // 3.14159265359
 
 ---
 
-### Raw Strings v Rustu
+### Raw Strings v Rust-u
 
 Raw strings so način zapisa nizov, kjer se ne uporablja escape zapis (kot je `\n` za novo vrstico ali `\"` za narekovaj). To je uporabno, ko želimo zapisati niz, ki vsebuje veliko posebnih znakov ali ko želimo ohraniti oblikovanje (npr. večvrstični nizi).
 
