@@ -106,13 +106,13 @@ fn main() {
         števec += 1;
         if števec == 3 {
             break;
-        }
+        } println!("števec loop = {}", števec);
     }
 
     // While zanka
     while števec < 5 {
         števec += 1;
-    }
+    } println!("števec while = {}", števec);
 
     // For zanka
     for i in 0..5 {
