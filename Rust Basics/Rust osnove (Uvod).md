@@ -1,4 +1,5 @@
-Seveda! Rust je moder, zmogljiv in varen programski jezik, ki se poudarja na hitrosti, vzporednosti in varnosti s spominom. Tukaj je uvod v Rust v slovenščini.
+# Uvod v slovenščini
+Rust je varen programski jezik, kjer je poudarek na hitrosti, paralelnosti in varnosti pri upravljanju s spominom.
 
 ### 1. Namestitev Rusta
 Najprej morate namestiti Rust. To lahko storite s pomočjo orodja `rustup`, ki vam omogoča enostavno upravljanje različic Rusta.
