@@ -142,14 +142,15 @@ Izposoja (`borrowing`) omogoča, da se vrednost posodi brez prevzema lastništva
 
 ```rust
 fn main() {
-    let s1 = String::from("Pozdravljen");
-    let dolzina = izracunaj_dolzino(&s1); // Posojamo s1 oz. sposojamo si od s1
+    let s1 = String::from("AI Inženirja");
+    let dolzina = izmeri_dolzino_besede_zveze(&s1); // Posojamo s1
     println!("Dolžina '{}' je {}.", s1, dolzina);
 }
 
-fn izracunaj_dolzino(s: &String) -> usize {
+fn izmeri_dolzino_besede_zveze(s: &String) -> usize {
     s.len()
 }
+
 ```
 
 ### 4. Dodatni viri
