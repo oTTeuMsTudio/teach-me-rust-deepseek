@@ -1,10 +1,6 @@
-Seveda! Naučimo se o **številskih literalah** in **surovih nizih** (raw strings) v programskem jeziku Rust. Vse skupaj bom razložil v slovenščini.
-
----
-
 ### Številski literali v Rust-u
 
-Številski literali so načini, kako v Rustu zapisujemo števila. Rust podpira različne tipe števil, kot so cela števila (`integers`), plavajoča številka (`floats`) in števila v različnih številskih sistemih (binarni, osmiški, šestnajstiški).
+Številski literali so načini, kako v Rust-u zapisujemo števila. Rust podpira različne tipe števil, kot so cela števila (`integers`), plavajoča številka (`floats`) in števila v različnih številskih sistemih (binarni, osmiški, šestnajstiški).
 
 #### 1. Cela števila (Integers)
 Cela števila so števila brez decimalnih vejic. Rust podpira različne velikosti in predznake:
@@ -35,7 +31,7 @@ let c = 6.022e23; // znanstveni zapis (6.022 * 10^23)
 ```
 
 #### 3. Ločila za lažje branje
-V Rustu lahko uporabljate podčrtaje (`_`) za ločevanje števk, da so številke bolj berljive:
+V Rust-u lahko uporabljate podčrtaje (`_`) za ločevanje števk, da so številke bolj berljive:
 
 ```rust
 let milijon = 1_000_000; // 1000000
@@ -44,20 +40,20 @@ let pi = 3.141_592_653_59; // 3.14159265359
 
 ---
 
-### Surovi nizi (Raw Strings) v Rustu
+### Raw Strings v Rustu
 
-Surovi nizi (`raw strings`) so način zapisa nizov, kjer se ne uporablja escape zapis (kot je `\n` za novo vrstico ali `\"` za narekovaj). To je uporabno, ko želimo zapisati niz, ki vsebuje veliko posebnih znakov ali ko želimo ohraniti oblikovanje (npr. večvrstični nizi).
+Raw strings so način zapisa nizov, kjer se ne uporablja escape zapis (kot je `\n` za novo vrstico ali `\"` za narekovaj). To je uporabno, ko želimo zapisati niz, ki vsebuje veliko posebnih znakov ali ko želimo ohraniti oblikovanje (npr. večvrstični nizi).
 
 #### Sintaksa
-Surovi nizi se začnejo in končajo z zaporedjem `r#` in `#`. Število `#` lahko povečamo, če je potrebno, da se izognemo konfliktu z vsebino niza.
+Raw strings se začnejo in končajo z zaporedjem `r#` in `#`. Število `#` lahko povečamo, če je potrebno, da se izognemo konfliktu z vsebino niza.
 
 Primeri:
 ```rust
 let navaden_niz = "To je navaden niz z escape znaki: \nNova vrstica.";
-let surov_niz = r#"To je surov niz brez escape znakov: \nNi nove vrstice."#;
+let raw_string = r#"To je raw string brez escape znakov: \nNi nove vrstice."#;
 
 let večvrstični_niz = r#"
-To je večvrstični surov niz.
+To je večvrstični raw string.
 Vsebuje več vrstic in ni potrebno uporabljati \n.
 "#;
 
@@ -78,6 +74,5 @@ Niz z "#" v vsebini in še več "#" okoli.
 ### Zaključek
 
 - **Številski literali**: Rust podpira različne tipe števil in številske sisteme. Uporaba podčrtajev (`_`) omogoča bolj berljive številke.
-- **Surovi nizi**: Uporabni so za zapis nizov brez uporabe escape znakov, še posebej pri večvrstičnih nizih ali nizih s posebnimi znaki.
+- **Raw strings**: Uporabni so za zapis nizov brez uporabe escape znakov, še posebej pri večvrstičnih nizih ali nizih s posebnimi znaki.
 
-Če imaš kakršna koli vprašanja ali potrebuješ dodatne razlage, le vprašaj! 😊
