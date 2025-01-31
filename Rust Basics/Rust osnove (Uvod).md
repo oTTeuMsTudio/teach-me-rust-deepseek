@@ -1,7 +1,7 @@
 # Uvod v slovenščini
 Rust je varen programski jezik, kjer je poudarek na hitrosti, paralelnosti in varnosti pri upravljanju s spominom.
 
-### 1. Namestitev Rusta
+### 1. Namestitev Rust-a
 Najprej morate namestiti Rust. To lahko storite s pomočjo orodja `rustup`, ki vam omogoča enostavno upravljanje različic Rusta.
 
 ```bash
@@ -14,7 +14,7 @@ Po namestitvi lahko preverite, ali je Rust pravilno nameščen:
 rustc --version
 ```
 
-### 2. Prvi program v Rustu
+### 2. Prvi program v Rust-u
 Ustvarimo nov projekt:
 
 ```bash
@@ -36,7 +36,7 @@ Za zagon programa uporabite:
 cargo run
 ```
 
-### 3. Osnove Rusta
+### 3. Osnove Rust-a
 
 #### Spremenljivke
 V Rustu so spremenljivke privzeto nespremenljive (`immutable`). Če želite spremenljivo spremenljivko, uporabite ključno besedo `mut`.
