@@ -1,5 +1,4 @@
-Seveda! Rust ima močno podporo za kolekcije, ki so podatkovne strukture za shranjevanje in upravljanje več vrednosti. Najosnovnejše kolekcije v Rustu so `Vec`, `HashMap` in `HashSet`. Poglejmo si jih v slovenščini.
-
+Rust ima močno podporo za zbirke (`Collections`). Zbirke so podatkovne strukture za shranjevanje in upravljanje vrednosti. Najosnovnejše zbirke v Rustu so `Vec`, `HashMap` in `HashSet`. 
 ### 1. `Vec` (Vektor)
 `Vec` je dinamično polje, ki lahko raste ali se skrči. Shranjuje vrednosti v zaporedju in omogoča hitr dostop do elementov po indeksu.
 
@@ -77,6 +76,4 @@ for element in &množica {
 ```
 
 ### Zaključek
-To so osnove kolekcij v Rustu. `Vec` je odličen za zaporedja, `HashMap` za pare ključ-vrednost in `HashSet` za edinstvene vrednosti. Rustova standardna knjižnica ponuja še več kolekcij, kot so `LinkedList`, `BTreeMap`, `BTreeSet` itd., vendar so `Vec`, `HashMap` in `HashSet` najpogosteje uporabljene.
-
-Če imaš kakršnakoli vprašanja ali potrebuješ dodatno razlago, le vprašaj! 😊
+To so osnove zbirk v Rust-u. `Vec` je odličen za zaporedja, `HashMap` za pare ključ-vrednost in `HashSet` za edinstvene vrednosti. Rustova standardna knjižnica ponuja še več kolekcij, kot so `LinkedList`, `BTreeMap`, `BTreeSet` itd., vendar so `Vec`, `HashMap` in `HashSet` najpogosteje uporabljene.
