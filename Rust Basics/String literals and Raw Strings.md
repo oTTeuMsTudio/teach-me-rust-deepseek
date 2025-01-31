@@ -1,4 +1,8 @@
-### Številski literali v Rustu
+Seveda! Naučimo se o **številskih literalah** in **surovih nizih** (raw strings) v programskem jeziku Rust. Vse skupaj bom razložil v slovenščini.
+
+---
+
+### Številski literali v Rust-u
 
 Številski literali so načini, kako v Rustu zapisujemo števila. Rust podpira različne tipe števil, kot so cela števila (`integers`), plavajoča številka (`floats`) in števila v različnih številskih sistemih (binarni, osmiški, šestnajstiški).
 
