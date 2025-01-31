@@ -75,12 +75,12 @@ fn main() {
 Funkcije se definirajo s ključno besedo `fn`.
 
 ```rust
-fn pozdravi(ime: &str) {
+fn pozdrav(ime: &str) {
     println!("Pozdravljen, {}!", ime);
 }
 
 fn main() {
-    pozdravi("Ana");
+    pozdrav("g. Inženir");
 }
 ```
 
