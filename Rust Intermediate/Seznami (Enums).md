@@ -1,4 +1,4 @@
-
+# Izčrpen seznam, Nabori (Enums), naštevanje (enumeration)
 
 ### `Enums` (nabori, nabor, naštevanje, enumaracija)
 
