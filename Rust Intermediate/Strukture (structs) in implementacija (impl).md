@@ -1,4 +1,4 @@
-Rust je močan in varen sistemski programski jezik, ki omogoča uporabo struktur (`struct`) za organizacijo podatkov. Poleg tega lahko z uporabo implementacije `impl` definiramo metode, ki delujejo na teh strukturah.
+Rust je varen sistemski programski jezik, ki omogoča uporabo struktur (`struct`) za organizacijo podatkov. Poleg tega lahko z uporabo implementacije `impl` definiramo metode, ki delujejo na teh strukturah.
 
 ### 1. Structure `struct`
 
