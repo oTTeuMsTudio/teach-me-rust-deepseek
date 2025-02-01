@@ -1,8 +1,8 @@
-Seveda! Razložil ti bom, kaj so `enum` (nabori) v Rustu v slovenščini.
 
-### Kaj so `enum` v Rustu?
+### `Enums` , nabori, Enum, nabor, naštevanje ali enumaracija
 
-`Enum` je kratica za "enumeration" (nabornik) in predstavlja tip podatkov, ki omogoča definiranje množice vrednosti. V Rustu lahko z `enum` definiraš tip, ki ima več možnih variant. Vsaka varianta lahko vsebuje različne podatke ali pa je lahko tudi prazna.
+`Enum` je kratica za "enumeration" (naštevanje ali nabor) in predstavlja tip podatkov, ki omogoča definiranje, naštevanje v množici vrednosti. V Rust-u lahko z `enum`-si definiraš tip, ki ima več možnih variant. Vsaka varianta lahko vsebuje različne podatke ali pa je lahko tudi prazna.
+
 
 ### Osnovna sintaksa
 
