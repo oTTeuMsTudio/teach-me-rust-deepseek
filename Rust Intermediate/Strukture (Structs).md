@@ -1,4 +1,5 @@
-Strukture (`structs`) so temeljni gradniki za ustvarjanje lastnih podatkovnih tipov. Omogočajo ti, da združiš več vrednosti v eno samo enoto. 
+Rust je varen sistemski programski jezik, ki omogoča uporabo struktur (`structs`) za organizacijo podatkov. Omogočajo ti, da združiš več vrednosti v eno samo enoto. 
+
 ### 1. Osnovna Struktura
 
 Struktura je podobna "razredu" v drugih jezikih, vendar je bolj preprosta. Definirana je s ključno besedo `struct`.
