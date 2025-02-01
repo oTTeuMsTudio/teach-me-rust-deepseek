@@ -1,6 +1,6 @@
-Seveda! V tej lekciji se bomo naučili, kako uporabljati `struct` in `impl` v Rustu. Rust je močan in varen sistemski programski jezik, ki omogoča uporabo struktur (`struct`) za organizacijo podatkov. Poleg tega lahko z uporabo `impl` definiramo metode, ki delujejo na teh strukturah.
+Rust je močan in varen sistemski programski jezik, ki omogoča uporabo struktur (`struct`) za organizacijo podatkov. Poleg tega lahko z uporabo implementacije `impl` definiramo metode, ki delujejo na teh strukturah.
 
-### 1. Osnove `struct`
+### 1. Structure `struct`
 
 Struktura (`struct`) je zbirka podatkov, ki jih lahko združimo v eno entiteto. Vsak podatek v strukturi ima svoje ime in tip.
 
@@ -37,7 +37,7 @@ println!("Ime: {}", oseba.ime);
 println!("Starost: {}", oseba.starost);
 ```
 
-### 4. Uporaba `impl` za metode
+### 4. Definiranje metode z `impl`
 
 Z `impl` lahko definiramo metode, ki delujejo na strukturah. Metode so funkcije, ki so povezane s strukturo.
 
@@ -70,7 +70,7 @@ let oseba = Oseba {
     starost: 25,
 };
 
-oseba.pozdravi(); // Izpiše: Pozdravljen, Ana!
+oseba.pozdravi(); // Izpiše: Pozdravljena, Ana!
 println!("Je odrasel? {}", oseba.je_odrasel()); // Izpiše: Je odrasel? true
 ```
 
@@ -94,6 +94,4 @@ Tukaj smo definirali asociirano funkcijo `nova`, ki ustvari novo instanco `Oseba
 
 ### 7. Zaključek
 
-Strukture (`struct`) in metode (`impl`) so osnovni gradniki Rustovih programov. Omogočajo nam, da organiziramo podatke in funkcionalnost na smiseln način. Z uporabo `impl` lahko definiramo metode, ki delujejo na strukturah, in asociirane funkcije za ustvarjanje novih instanc.
-
-Če imate kakršnakoli vprašanja ali potrebujete dodatno razlago, vprašajte! 😊
+Strukture (`struct`) in metode (`impl`) so osnovni gradniki Rust-ovih programov. Omogočajo nam, da organiziramo podatke in funkcionalnost na smiseln način. Z uporabo `impl` lahko definiramo metode, ki delujejo na strukturah, in asociirane funkcije za ustvarjanje novih instanc.
