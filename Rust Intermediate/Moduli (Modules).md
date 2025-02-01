@@ -26,8 +26,8 @@ fn main() {
 ```
 
 - `mod truenjenir { ... }`: Definira modul z imenom `truenjenir`.
-- `pub fn seštej(...)`: Funkcija `seštej` je javno dostopna (`pub` pomeni "public").
-- truenjenir::seštej(...)`: Klic funkcije `seštej` iz modula `truenjenir`.
+- `pub fn sum(...)`: Funkcija `sum` je javno dostopna (`pub` pomeni "public").
+- truenjenir::sum(...)`: Klic funkcije `sum` iz modula `truenjenir`.
 
 ### 2. Hierarhija modulov
 
@@ -53,7 +53,7 @@ fn main() {
 }
 ```
 
-- `AIinženiring::osnovne_operacije::seštej(...)`: Klic funkcije `seštej` iz modula `osnovne_operacije`, ki je del modula `AIinženiring`.
+- `truenjenir::osnovne_operacije::sum(...)`: Klic funkcije `sum` iz modula `osnovne_operacije`, ki je del modula `truenjenir`.
 
 ### 3. Uporaba `use` za poenostavitev
 
