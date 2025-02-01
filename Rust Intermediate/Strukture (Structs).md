@@ -1,5 +1,4 @@
-Seveda! Strukture (`structs`) v Rustu so temeljni gradniki za ustvarjanje lastnih podatkovnih tipov. Omogočajo ti, da združiš več vrednosti v eno samo enoto. Poglejmo si, kako delujejo v Rustu, s primeri in razlago v slovenščini.
-
+Strukture (`structs`) so temeljni gradniki za ustvarjanje lastnih podatkovnih tipov. Omogočajo ti, da združiš več vrednosti v eno samo enoto. 
 ### 1. Osnovna Struktura
 
 Struktura je podobna "razredu" v drugih jezikih, vendar je bolj preprosta. Definirana je s ključno besedo `struct`.
@@ -15,7 +14,7 @@ Tukaj smo definirali strukturo `Oseba`, ki ima dva polja:
 - `ime` tipa `String` (niz),
 - `starost` tipa `u32` (32-bitno nepredznačeno celo število).
 
-### 2. Ustvarjanje Instance Strukture
+### 2. Instanciranje Strukture
 
 Ko imamo strukturo, lahko ustvarimo njeno instanco (objekt).
 
@@ -108,9 +107,9 @@ Dostop do polj je prek indeksov:
 println!("Rdeča: {}", rdeca.0);  // Izpiše: Rdeča: 255
 ```
 
-### 8. Enotske Strukture
+### 8. Unit Strukture
 
-Enotske strukture (`unit structs`) so strukture brez polj. Uporabne so, ko želimo definirati tip, ki nima podatkov.
+Unit strukture (`unit structs`) so strukture brez polj. Uporabne so, ko želimo definirati tip, ki nima podatkov.
 
 ```rust
 struct Prazno;
@@ -120,6 +119,4 @@ let p = Prazno;
 
 ### Zaključek
 
-Strukture v Rustu so močno orodje za organizacijo podatkov. Omogočajo ti, da združiš povezane podatke v eno enoto, kar olajša upravljanje in razumevanje kode. Z metodami in povezanimi funkcijami lahko strukturam dodajaš tudi funkcionalnost.
-
-Če imaš kakršnakoli vprašanja ali potrebuješ dodatno razlago, le vprašaj! 😊
+Strukture so orodje za organizacijo podatkov. Omogočajo ti, da združiš povezane podatke v eno enoto, kar olajša upravljanje in razumevanje kode. Z metodami in povezanimi funkcijami lahko strukturam dodajaš tudi funkcionalnost.
