@@ -91,13 +91,13 @@ Metode lahko kličemo na instancah strukture.
 
 ```rust
 let mut uporabnik = User {
-    username: String::from("anaprek"),
-    email: String::from("ana@example.com"),
+    username: String::from("truenjenir"),
+    email: String::from("truenjenir@example.com"),
     sign_in_count: 5,
     active: true,
 };
 
-uporabnik.pozdravi(); // Izpiše: Pozdravljen, anaprek!
+uporabnik.pozdravi(); // Izpiše: Pozdravljen, truenjenir!
 println!("Je aktiven? {}", uporabnik.je_aktiven()); // Izpiše: Je aktiven? true
 
 uporabnik.prijavi_se(); // Povečamo število prijav
@@ -177,7 +177,7 @@ impl User {
 }
 
 fn main() {
-    let mut uporabnik = User::nov(String::from("anaprek"), String::from("ana@example.com"));
+    let mut uporabnik = User::nov(String::from("truenjenir"), String::from("truenjenir@example.com"));
 
     uporabnik.pozdravi(); // Izpiše: Pozdravljen, anaprek!
     println!("Je aktiven? {}", uporabnik.je_aktiven()); // Izpiše: Je aktiven? true
@@ -191,11 +191,11 @@ fn main() {
 
 ### 8. Zaključek
 
-V tej lekciji smo se naučili:
+Sedaj znamo:
 
-- Kako definirati strukturo `User`.
-- Kako ustvariti instance strukture.
-- Kako dostopati do polj strukture.
-- Kako uporabiti `impl` za definiranje metod in asociiranih funkcij.
+- definirati strukturo `User`.
+- ustvariti instance strukture.
+- dostopati do polj strukture.
+- uporabiti `impl` za definiranje metod in asociiranih funkcij.
 
-Strukture in metode so močno orodje v Rustu za organizacijo podatkov in funkcionalnosti. Če imate kakršnakoli vprašanja ali potrebujete dodatno razlago, vprašajte! 😊
+Strukture in metode so orodje za organizacijo podatkov in funkcionalnosti.
