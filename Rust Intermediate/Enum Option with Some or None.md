@@ -1,11 +1,11 @@
-Tukaj uporabljamo enum `Option`, ki vključuje `Some` in `None`.
+Tukaj bomo uporabili enum `Option`, ki vključuje `Some` in `None`.
 ### Kaj je `Option`?
 
-Enum je `Option` enum, ki se uporablja za predstavljanje vrednosti, ki lahko obstaja (`Some`) ali pa ne obstaja (`None`). To je zelo uporabno, ko imamo opravka z vrednostmi, ki so lahko `null` ali `undefined` v drugih jezikih, vendar Rust ne dovoli neposredne uporabe `null` zaradi varnosti.
+`Option` se uporablja za predstavljanje vrednosti, ki lahko obstaja (`Some`) ali pa ne obstaja (`None`). To je zelo uporabno, ko imamo opravka z vrednostmi, ki so lahko `null` ali `undefined` v drugih jezikih, vendar Rust ne dovoli neposredne uporabe `null` zaradi varnosti.
 
 ### Definicija `Option`
 
-`Option` je definiran v standardni knjižnici Rusta takole:
+`Option` je definiran v Rust-ovi standardni knjižnici takole:
 
 ```rust
 enum Option<T> {
@@ -40,8 +40,8 @@ fn main() {
     let iskano = 30;
 
     match poisci_indeks(seznam, iskano) {
-        Some(indeks) => println!("Število {} najdeno na indeksu {}", iskano, indeks),
-        None => println!("Število {} ni bilo najdeno v seznamu.", iskano),
+        Some(indeks) => println!("Število {iskano} najdeno na indeksu {indeks}"),
+        None => println!("Število {iskano} ni bilo najdeno v seznamu."),
     }
 }
 ```
@@ -52,7 +52,7 @@ V tem primeru:
 
 #### Primer 2: Uporaba `Option` z `match`
 
-`match` je močan mehanizem v Rustu, ki omogoča obravnavo različnih možnosti.
+`match` je močan mehanizem, ki omogoča obravnavo različnih možnosti.
 
 ```rust
 fn deljenje(a: f64, b: f64) -> Option<f64> {
@@ -68,7 +68,7 @@ fn main() {
     let b = 2.0;
 
     match deljenje(a, b) {
-        Some(rezultat) => println!("Rezultat deljenja je {}", rezultat),
+        Some(rezultat) => println!("Rezultat deljenja je {rezultat}"),
         None => println!("Deljenje z nič ni dovoljeno!"),
     }
 }
@@ -104,6 +104,4 @@ println!("{}", y.expect("Vrednost ne obstaja!")); // Panika s sporočilom "Vredn
 
 ### Zaključek
 
-`Option` je zelo uporaben enum v Rustu, ki nam pomaga obvladati primere, ko vrednost lahko obstaja ali pa ne. Z uporabo `Some` in `None` lahko varno delamo z možnimi `null` vrednostmi, ne da bi se srečali z napakami, ki so pogoste v drugih jezikih.
-
-Upam, da ti je ta razlaga pomagala razumeti, kako uporabljati `Option` v Rustu! Če imaš kakšna vprašanja, lahko vprašaš. 😊
+`Option` je zelo uporaben enum, ki nam pomaga obvladati primere, ko vrednost lahko obstaja ali pa ne. Z uporabo `Some` in `None` lahko varno delamo z možnimi `null` vrednostmi, ne da bi se srečali z napakami, ki so pogoste v drugih jezikih.
