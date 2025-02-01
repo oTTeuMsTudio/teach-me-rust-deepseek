@@ -1,8 +1,4 @@
-Tukaj bomo uporabili enum `Result` z generičnimi tipi podatkov.
-
-### Kaj je `Result` enum?
-
-`Result` je enum v Rustu, ki se pogosto uporablja za obvladovanje napak. Definiran je takole:
+Tukaj bomo uporabili enum `Result` z generičnimi tipi podatkov. Enum `Result` se pogosto uporablja za obvladovanje napak. Definiran je takole:
 
 ```rust
 enum Result<T, E> {
@@ -32,7 +28,7 @@ V tem primeru:
 - `T` je `f64`, ker je rezultat deljenja število s plavajočo vejico.
 - `E` je `String`, ker napako predstavljamo kot niz.
 
-### Uporaba `Result` v kodi
+### Uporaba `Result`-a v kodi
 
 Ko kličemo funkcijo `deli`, moramo obravnavati obe možnosti: uspešen rezultat (`Ok`) in napako (`Err`).
 
@@ -41,8 +37,8 @@ fn main() {
     let rezultat = deli(10.0, 2.0);
 
     match rezultat {
-        Ok(vrednost) => println!("Rezultat deljenja je: {}", vrednost),
-        Err(napaka) => println!("Napaka: {}", napaka),
+        Ok(vrednost) => println!("Rezultat deljenja je: {vrednost}"),
+        Err(napaka) => println!("Napaka: {napaka}"),
     }
 }
 ```
@@ -68,8 +64,8 @@ fn main() {
     let rezultat = deli_cela(10, 0);
 
     match rezultat {
-        Ok(vrednost) => println!("Rezultat deljenja je: {}", vrednost),
-        Err(napaka) => println!("Napaka: {}", napaka),
+        Ok(vrednost) => println!("Rezultat deljenja je: {vrednost}"),
+        Err(napaka) => println!("Napaka: {napaka}"),
     }
 }
 ```
@@ -96,8 +92,8 @@ fn main() {
     let rezultat = deli_z_napako(10.0, 0.0);
 
     match rezultat {
-        Ok(vrednost) => println!("Rezultat deljenja je: {}", vrednost),
-        Err(napaka) => println!("Napaka: {:?}", napaka),
+        Ok(vrednost) => println!("Rezultat deljenja je: {vrednost}"),
+        Err(napaka) => println!("Napaka: {napaka:?}"),
     }
 }
 ```
@@ -107,6 +103,5 @@ V tem primeru:
 
 ### Zaključek
 
-`Result` enum z generičnimi tipi je zelo močno orodje v Rustu za obvladovanje napak. Omogoča nam, da jasno ločimo med uspešnimi rezultati in napakami, ter da uporabljamo različne tipe za oboje. To naredi kodo bolj varno in berljivo.
+Enum `Result` z generičnimi tipi je zelo močno orodje za obvladovanje napak. Omogoča nam, da jasno ločimo med uspešnimi rezultati in napakami, ter da uporabljamo različne tipe za oboje. To naredi kodo bolj varno in berljivo.
 
-Upam, da ti je ta razlaga v slovenščini pomagala razumeti, kako uporabljati `Result` enum z generičnimi tipi v Rustu! Če imaš kakšna dodatna vprašanja, samo vprašaj. 😊
