@@ -1,22 +1,22 @@
 
-### `Enums` , nabori, Enum, nabor, naštevanje ali enumaracija
 
-`Enum` je kratica za "enumeration" (naštevanje ali nabor) in predstavlja tip podatkov, ki omogoča definiranje, naštevanje v množici vrednosti. V Rust-u lahko z `enum`-si definiraš tip, ki ima več možnih variant. Vsaka varianta lahko vsebuje različne podatke ali pa je lahko tudi prazna.
+### `Enums` (nabori, nabor, naštevanje, enumaracija)
 
+`Enum` je kratica za "enumeration" (naštevanje, nabor) in predstavlja tip podatkov, ki omogoča definiranje, naštevanje v množici vrednosti. V Rust-u lahko z `enum`-si definiraš tip, ki ima več možnih variant. Vsaka varianta lahko vsebuje različne podatke ali pa je lahko tudi prazna.
 
 ### Osnovna sintaksa
 
-Osnovna sintaksa za definiranje `enum` v Rustu je naslednja:
+Osnovna sintaksa za definiranje `enum`-ov v Rust-u je naslednja:
 
 ```rust
-enum ImeEnum {
+enum EnumIme {
     Varianta1,
     Varianta2,
     Varianta3,
 }
 ```
 
-Tukaj je `ImeEnum` ime nabornika, `Varianta1`, `Varianta2` in `Varianta3` pa so možne vrednosti, ki jih lahko sprejme spremenljivka tega tipa.
+Tukaj je `ImeEnum` ime nabora, `Varianta1`, `Varianta2` in `Varianta3` pa so možne vrednosti, ki jih lahko sprejme spremenljivka tega tipa.
 
 ### Primer: Barve
 
@@ -24,7 +24,7 @@ Poglejmo si preprost primer, kjer definiramo `enum` za barve:
 
 ```rust
 enum Barva {
-    Rdeča,
+    Rdeca,
     Zelena,
     Modra,
 }
@@ -37,57 +37,55 @@ Tukaj smo definirali `enum` z imenom `Barva`, ki ima tri variante: `Rdeča`, `Ze
 Ko imamo definiran `enum`, ga lahko uporabimo za ustvarjanje spremenljivk:
 
 ```rust
-let moja_barva = Barva::Rdeča;
+let moja_barva = Barva::Rdeca;
 ```
 
-Tukaj smo ustvarili spremenljivko `moja_barva`, ki ima vrednost `Barva::Rdeča`.
+Tukaj smo ustvarili spremenljivko `moja_barva`, ki ima vrednost `Barva::Rdeca`.
 
 ### `enum` s podatki
 
 V Rustu lahko vsaka varianta `enum` vsebuje tudi dodatne podatke. Na primer, definirajmo `enum` za geometrijske oblike:
 
 ```rust
-enum Oblika {
+enum Model {
     Krog(f64),          // Krog s polmerom
     Pravokotnik(f64, f64), // Pravokotnik s širino in višino
     Kvadrat(f64),       // Kvadrat s stranico
 }
 ```
 
-Tukaj ima vsaka varianta `enum` `Oblika` svoje podatke:
+Tukaj ima vsaka varianta v `enum` `Model` svoje podatke:
 
 - `Krog` vsebuje polmer tipa `f64`.
 - `Pravokotnik` vsebuje širino in višino tipa `f64`.
 - `Kvadrat` vsebuje dolžino stranice tipa `f64`.
 
-### Uporaba `enum` s podatki
+### Uporaba `enum`-a s podatki
 
-Uporaba takšnega `enum` izgleda takole:
+Uporaba takšnega `enum`-a izgleda takole:
 
 ```rust
-let krog = Oblika::Krog(5.0);
-let pravokotnik = Oblika::Pravokotnik(10.0, 20.0);
-let kvadrat = Oblika::Kvadrat(15.0);
+let krog = Model::Krog(5.0);
+let pravokotnik = Model::Pravokotnik(10.0, 20.0);
+let kvadrat = Model::Kvadrat(15.0);
 ```
 
-### Obdelava `enum` z `match`
+### Obdelava `enum`-a z `match`
 
-Pogosto želimo obdelati različne variante `enum` z uporabo `match` izraza. Na primer:
+Pogosto želimo obdelati različne variante `enum`-a z uporabo `match` izraza. Na primer:
 
 ```rust
-fn izracunaj_ploscino(oblika: Oblika) -> f64 {
-    match oblika {
-        Oblika::Krog(r) => 3.14 * r * r,
-        Oblika::Pravokotnik(w, h) => w * h,
-        Oblika::Kvadrat(s) => s * s,
+fn izracunaj_ploscino(model: Model) -> f64 {
+    match model {
+        Model::Krog(r) => 3.14 * r * r,
+        Model::Pravokotnik(w, h) => w * h,
+        Model::Kvadrat(s) => s * s,
     }
 }
 ```
 
-Tukaj funkcija `izracunaj_ploscino` sprejme `Oblika` in z `match` izrazom obdela vsako varianto, da izračuna ploščino.
+Tukaj funkcija `izracunaj_ploscino` sprejme `Model` in z `match` izrazom obdela vsako varianto, da izračuna ploščino.
 
 ### Zaključek
 
-`Enum` v Rustu je zelo močno orodje, ki omogoča definiranje tipov z več možnimi vrednostmi. Lahko vsebujejo tudi dodatne podatke, kar jih naredi še bolj fleksibilne. Z uporabo `match` lahko enostavno obdelujemo različne variante `enum`.
-
-Upam, da ti je ta razlaga v slovenščini pomagala razumeti, kako delujejo `enum` v Rustu! Če imaš kakšna dodatna vprašanja, lahko vprašaš. 😊
+`Enum` v Rustu je zelo močno orodje, ki omogoča definiranje tipov z več možnimi vrednostmi. Lahko vsebujejo tudi dodatne podatke, kar jih naredi še bolj fleksibilne. Z uporabo `match`-a lahko enostavno obdelujemo različne variante `enum`-a.
