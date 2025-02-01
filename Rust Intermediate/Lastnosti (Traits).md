@@ -39,7 +39,7 @@ fn izpisi_pozdrav<T: Pozdrav>(objekt: T) {
 }
 
 fn main() {
-    let oseba = Oseba { ime: String::from("Ana") };
+    let oseba = Oseba { ime: String::from("truenjenir") };
     izpisi_pozdrav(oseba);
 }
 ```
@@ -92,6 +92,5 @@ fn izpisi_podatke<T: Pozdrav + Opis>(objekt: T) {
 ```
 
 ### Zaključek
-Lastnosti (traits) so močno orodje v Rustu, ki omogoča definiranje skupnega vedenja za različne tipe. Uporabljajo se za abstrakcijo, polimorfizem in izogibanje podvajanju kode.
+Lastnosti (traits) so orodje, ki omogoča definiranje skupnega vedenja za različne tipe. Uporabljajo se za abstrakcijo, polimorfizem in izogibanje podvajanju kode.
 
-Če imaš kakršnakoli dodatna vprašanja ali potrebuješ dodatne razlage, le vprašaj! 😊
