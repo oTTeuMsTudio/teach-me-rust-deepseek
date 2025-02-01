@@ -1,6 +1,6 @@
-Seveda! Razložil ti bom `Result` in `Option` v Rustu v slovenščini.
+Danes ponavljamo `Result` in `Option`.
 
-### 1. `Option` v Rustu
+### 1. `Option`
 
 `Option` je enum (izčrpen seznam), ki se uporablja, ko lahko vrednost obstaja ali pa ne. To je zelo uporabno, ko želimo izogniti napakam, povezanim z `null` vrednostmi, ki so pogoste v drugih jezikih.
 
@@ -32,7 +32,7 @@ fn main() {
 }
 ```
 
-### 2. `Result` v Rustu
+### 2. `Result`
 
 `Result` je še en enum, ki se uporablja za obravnavanje operacij, ki lahko uspejo ali pa spodletijo. Uporablja se predvsem za obravnavanje napak.
 
@@ -71,6 +71,4 @@ fn main() {
   - `Ok(T)` pomeni, da je operacija uspela in vsebuje rezultat.
   - `Err(E)` pomeni, da je operacija spodletela in vsebuje napako.
 
-Oba koncepta sta zelo močna orodja v Rustu za obravnavanje negotovosti in napak na varen način, brez uporabe `null` vrednosti.
-
-Upam, da ti je to razlago v slovenščini koristila! Če imaš kakšna dodatna vprašanja, samo vprašaj. 😊
+Oba koncepta sta orodja za obravnavanje negotovosti in napak na varen način, brez uporabe `null` vrednosti.
