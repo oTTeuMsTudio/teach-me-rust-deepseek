@@ -1,12 +1,12 @@
-V nizkonivojskem jeziku Rust poznamo koncept **čas veljavnosti podatkov v pomnilniku** (lifetimes), kar je del sistema lastništva, ki pomaga preprečiti napake z dostopom do neveljavnih podatkov.
+V nizkonivojskem jeziku Rust poznamo koncept **časa veljavnosti podatkov v pomnilniku** (lifetimes), kar je del sistema lastništva, ki pomaga preprečiti napake z dostopom do neveljavnih podatkov.
 
-### Kaj je življenjska doba podatkov (lifetimes)?
+### Kaj so lifetimes?
 
 Lifetimes se nanašajo na to, kako dolgo je neka spremenljivka ali referenca veljavna. Rust uporablja lifetimes, da zagotovi, da reference vedno kažejo na veljavne podatke. To je pomembno, ker preprečuje napake, kot so "dangling pointers" (reference na neveljavne podatke).
 
-### Sintaksa življenjskih dob
+### Sintaksa `lifetimes`-ov
 
-Življenjske dobe se označujejo z apostrofom (`'`), ki mu sledi identifikator, na primer `'a`, `'b`, itd. Te oznake se uporabljajo za povezovanje življenjskih dob različnih referenc.
+Lifetimes se označujejo z apostrofom (`'`), ki mu sledi identifikator, na primer `'a`, `'b`, itd. Te oznake se uporabljajo za povezovanje `lifetime`-ov različnih referenc.
 
 Primer:
 
@@ -22,19 +22,19 @@ fn najdaljsi<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 V tem primeru:
 
-- `'a` je življenjska doba, ki se nanaša na obe vhodni referenci (`x` in `y`) in na izhodno referenco.
-- Funkcija `najdaljsi` vrne referenco na daljši niz, ki ima isto življenjsko dobo kot vhodni nizi.
+- `'a` je veljavnost reference, ki se nanaša na obe vhodni referenci (`x` in `y`) in na izhodno referenco.
+- Funkcija `najdaljsi` vrne referenco na daljši niz, ki ima isto veljavno dobo kot `input` parametri.
 
-### Zakaj so življenjske dobe pomembne?
+### Zakaj so `lifetimes` dobe pomembne?
 
-Rustova prevajalnik (compiler) uporablja življenjske dobe, da zagotovi, da reference ne bodo preživele podatke, na katere se sklicujejo. To pomeni, da Rust preprečuje napake, kot so:
+Rust-ova prevajalnik (compiler) uporablja `lifetime` dobe, da zagotovi, da reference ne bodo preživele podatke, na katere se sklicujejo. To pomeni, da Rust preprečuje napake, kot so:
 
 - **Dangling references**: Ko referenca kaže na podatek, ki je bil že sproščen iz pomnilnika.
 - **Use-after-free**: Ko poskušamo uporabiti podatek, ki je bil že sproščen.
 
-### Primer brez življenjskih dob
+### Primer brez `lifetimes` dobe
 
-Če bi poskušali napisati funkcijo brez določenih življenjskih dob, bi Rustov prevajalnik vrnil napako:
+Če bi poskušali napisati funkcijo brez določenih `lifetimes` dobe, bi Rust-ov prevajalnik vrnil napako:
 
 ```rust
 fn najdaljsi(x: &str, y: &str) -> &str {
@@ -58,11 +58,11 @@ error[E0106]: missing lifetime specifier
   = help: this function's return type contains a borrowed value, but the signature does not say whether it is borrowed from `x` or `y`
 ```
 
-Rust zahteva, da eksplicitno določimo življenjske dobe, da se izognemo morebitnim napakam.
+Rust zahteva, da eksplicitno določimo `lifetimes` dobe, da se izognemo morebitnim napakam.
 
-### Življenjske dobe v strukturah
+### `lifetimes` dobe v strukturah
 
-Življenjske dobe se uporabljajo tudi v strukturah, ki vsebujejo reference. Na primer:
+`Lifetimes` dobe se uporabljajo tudi v strukturah (`structs`), ki vsebujejo reference. Na primer:
 
 ```rust
 struct Oseba<'a> {
@@ -79,11 +79,9 @@ fn main() {
 
 V tem primeru:
 
-- `Oseba` ima referenco na niz (`ime`), zato moramo določiti življenjsko dobo `'a`.
+- `Oseba` ima referenco na `str` (`ime`), zato moramo določiti življenjsko dobo `'a`.
 - To zagotovi, da `Oseba` ne bo preživela podatka, na katerega se sklicuje.
 
 ### Sklep
 
-Življenjske dobe so orodje v nizkonivojskem jeziku Rust, ki pomaga zagotoviti varnost pomnilnika. Čeprav so lahko sprva malo zmedene, postanejo bolj razumljive z več prakse. Glavna ideja je, da Rust s pomočjo življenjskih dob preprečuje napake, ki bi lahko nastale zaradi neveljavnih referenc.
-
-Če imaš kakršnakoli vprašanja ali potrebuješ dodatne razlage, mi le sporoči! 😊
+Lifetimes dobe so orodje v nizkonivojskem jeziku Rust, ki pomagajo zagotoviti varnost pomnilnika. 
