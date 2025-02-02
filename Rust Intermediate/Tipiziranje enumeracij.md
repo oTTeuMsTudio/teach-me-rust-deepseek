@@ -1,6 +1,6 @@
 ### Kaj je Enumeracija?
 
-**Enumeracija** kot tipiziranje z več možnimi variantami. Na primer:
+**Enumeracija** je podatkovno tipiziranje variant. Na primer:
 
 ```rust
 enum Sporocilo {
@@ -15,8 +15,8 @@ V tem primeru imamo enumeracijo `Sporocilo`, ki ima tri variante:
 - `Stevilo`, ki vsebuje `i32`.
 - `Kombinacija`, ki vsebuje `String` in `i32`.
 
-### Tipiziranje enumeracije
-**Pattern Matching** je močna lastnost Rust-a, ki omogoča preverjanje, katera varianta enumeracije je trenutno uporabljena, in hkrati dostop do vrednosti, ki so shranjene v tej varianti.
+### Tipiziranje variant (Pattern Matching)
+Podatkovno tipiziranje variant omogoča preverjanje, katera varianta enumeracije je trenutno uporabljena, in hkrati dostop do vrednosti, ki so shranjene v tej varianti.
 
 #### Primer:
 
@@ -40,7 +40,7 @@ V tem primeru:
 
 ### Uporaba z Mešanimi Podatki
 
-Enumeracije v Rustu so zelo uporabne, ko imamo opravka z mešanimi podatki. Na primer, če želimo obdelati različne tipe sporočil, lahko uporabimo `match`, da obravnavamo vsako varianto posebej.
+Enumeracije so uporabne takrat, ko imamo opravka z raznolikimi podatki. Na primer, če želimo obdelati različne tipe sporočil, lahko uporabimo `match`, da obravnavamo vsako varianto posebej.
 
 #### Dodaten Primer:
 
@@ -56,7 +56,7 @@ fn main() {
 }
 ```
 
-Izhod tega programa bi bil:
+Izpis tega programa bi bil:
 
 ```
 Prejel sem besedilo: Zdravo!
@@ -66,6 +66,4 @@ Prejel sem kombinacijo: Odgovor: in 42
 
 ### Zaključek
 
-**Pattern Matching** v Rustu je zelo močno orodje, ki omogoča enostavno obdelavo različnih vrst podatkov, shranjenih v enumeracijah. Z uporabo `match` lahko preverimo, katera varianta je trenutno uporabljena, in dostopimo do njenih vrednosti.
-
-Če imaš kakršnakoli dodatna vprašanja ali potrebuješ dodatne razlage, le vprašaj! 😊
+**Pattern Matching** omogoča enostavno tipiziranje podatkov, shranjenih v enumeracijah. Z uporabo `match` lahko preverimo, katera varianta je trenutno uporabljena, in dostopimo do njenih vrednosti.
