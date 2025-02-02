@@ -1,8 +1,8 @@
-Rust ima močan sistem za obvladovanje napak, ki temelji na dveh glavnih konceptih: `Result` in `Option`. V slovenščini bi lahko te koncepte poimenovali "Rezultat" in "Možnost". Poglejmo si, kako delujejo in kako jih uporabljamo.
+Obvladovanje napak temelji na dveh glavnih konceptih: `Result` in `Option`. Te koncepte bi lahko  poimenovali tudi "Rezultat" in "Možnost". Poglejmo si, kako delujejo in kako jih uporabljamo.
 
-### 1. `Result` (Rezultat)
+### 1. `Result`
 
-`Result` je enum (naštevalni tip), ki se uporablja za obvladovanje operacij, ki lahko uspejo ali spodletijo. Ima dve možnosti:
+`Result` je enum tipizacija, ki se uporablja za nadzor operacij, ki lahko uspejo ali spodletijo. Ima dve možnosti:
 
 - `Ok(T)` - operacija je uspela in vsebuje rezultat.
 - `Err(E)` - operacija je spodletela in vsebuje napako.
@@ -28,9 +28,9 @@ fn main() {
 
 V tem primeru funkcija `deljenje` vrne `Ok` z rezultatom, če deljenje uspe, ali `Err` z opisom napake, če deljenje z nič ni mogoče.
 
-### 2. `Option` (Možnost)
+### 2. `Option`
 
-`Option` je podoben `Result`, vendar se uporablja, ko je vrednost lahko prisotna (`Some`) ali odsotna (`None`).
+`Option` je podobno kot `Result`, vendar se uporablja, ko je vrednost lahko prisotna (`Some`) ali odsotna (`None`).
 
 #### Primer uporabe `Option`:
 
@@ -57,7 +57,7 @@ Tu funkcija `poisci_indeks` vrne `Some` z indeksom, če je vrednost najdena, ali
 
 ### 3. Uporaba `unwrap` in `expect`
 
-Včasih želimo vrednost iz `Result` ali `Option` takoj pridobiti, ne da bi preverjali, ali je operacija uspela. V tem primeru lahko uporabimo `unwrap` ali `expect`.
+Včasih želimo vrednost iz `Result` ali `Option` pridobiti takoj, ne da bi preverjali, ali je operacija uspela. V tem primeru lahko uporabimo `unwrap` ali `expect`.
 
 - `unwrap()` - vrne vrednost, če je `Ok` ali `Some`, sicer panično zaključi program.
 - `expect("sporočilo")` - podobno kot `unwrap`, vendar omogoča dodajanje sporočila, ki se izpiše ob napaki.
@@ -108,5 +108,5 @@ V tem primeru, če `deljenje` vrne `Err`, se napaka propagira iz funkcije `izrac
 
 ### Zaključek
 
-Obvladovanje napak v Rustu je močno in fleksibilno. Z uporabo `Result` in `Option` lahko učinkovito obvladujemo napake in zagotavljamo, da je naša koda robustna in zanesljiva. Uporaba `unwrap` in `expect` je priročna, vendar je bolje uporabljati `match` ali `?` za bolj kontrolirano obvladovanje napak.
+Z uporabo `Result` in `Option` lahko učinkovito obvladujemo napake in zagotavljamo, da je naša koda robustna in zanesljiva. Uporaba `unwrap` in `expect` je priročna, vendar je bolje uporabljati `match` ali `?` za bolj kontrolirano obvladovanje napak.
 
