@@ -20,7 +20,7 @@ fn main() {
 ```
 
 **Razlaga:**
-- `match` preveri vrednost `število`.
+- `match` preveri `stevilo`.
 - Če je `število` enako `1`, izpiše `"Ena"`.
 - Če je `število` enako `2`, izpiše `"Dva"`.
 - Če je `število` enako `3`, izpiše `"Tri"`.
@@ -29,7 +29,7 @@ fn main() {
 ---
 
 ### 2. Preverjanje vrednosti
-Tip `Option` se uporablja, ko vrednost lahko obstaja (`Some`) ali pa je odsotna (`None`). Primer:
+Tip `Option` se uporablja, ko vrednost obstaja (`Some`) ali pa je odsotna (`None`). Primer:
 
 ```rust
 fn preveri_opcijo(opcija: Option<i32>) {
@@ -49,7 +49,7 @@ fn main() {
 ```
 
 **Razlaga:**
-- `Option` je lahko `Some(vrednost)` ali `None`.
+- `Option` je lahko `Some(42)` ali `None`.
 - `match` preveri, ali je vrednost prisotna (`Some`) ali ne (`None`).
 
 ---
@@ -75,12 +75,6 @@ fn main() {
 ```
 
 **Razlaga:**
-- `Result` je lahko `Ok(vrednost)` (uspeh) ali `Err(sporočilo)` (napaka).
+- `Result` je lahko `Ok(42)` (uspeh) ali `Err(sporočilo)` (napaka).
 - `match` preveri, ali je operacija uspela ali ne.
 
----
-
-### Zaključek
-- **Pattern Matching** je zelo uporaben za obdelavo različnih možnosti v Rustu.
-- Uporablja se z `match`, ki omogoča pregledno in varno obdelavo vrednosti.
-- **Integer**, **Option** in **Result** so pogosti primeri, kjer se `match` uporablja.
