@@ -1,8 +1,8 @@
-V nizkonivojskem jeziku Rust poznamo koncept **življenjske dobe podatkov v pomnilniku** (lifetimes). Življenjske dobe so del sistema lastništva, ki pomaga preprečiti napake z dostopom do neveljavnih podatkov.
+V nizkonivojskem jeziku Rust poznamo koncept **čas veljavnosti podatkov v pomnilniku** (lifetimes), kar je del sistema lastništva, ki pomaga preprečiti napake z dostopom do neveljavnih podatkov.
 
-### Kaj so življenjske dobe (lifetimes)?
+### Kaj je življenjska doba podatkov (lifetimes)?
 
-V Rustu se **življenjske dobe** nanašajo na to, kako dolgo je neka spremenljivka ali referenca veljavna. Rust uporablja življenjske dobe, da zagotovi, da reference vedno kažejo na veljavne podatke. To je pomembno, ker preprečuje napake, kot so "dangling pointers" (reference na neveljavne podatke).
+Lifetimes se nanašajo na to, kako dolgo je neka spremenljivka ali referenca veljavna. Rust uporablja lifetimes, da zagotovi, da reference vedno kažejo na veljavne podatke. To je pomembno, ker preprečuje napake, kot so "dangling pointers" (reference na neveljavne podatke).
 
 ### Sintaksa življenjskih dob
 
