@@ -79,7 +79,7 @@ fn main() {
 
 V tem primeru:
 
-- `Oseba` ima referenco na `str` (`ime`), zato moramo določiti življenjsko dobo `'a`.
+- `Oseba` ima referenco na `&str` (`&ime`), zato moramo določiti `lifetime 'a`.
 - To zagotovi, da `Oseba` ne bo preživela podatka, na katerega se sklicuje.
 
 ### Sklep
