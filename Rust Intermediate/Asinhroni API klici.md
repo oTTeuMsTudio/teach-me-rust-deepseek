@@ -1,92 +1,109 @@
-Rust ima odlično podporo za asinhrono programiranje, predvsem s pomočjo knjižnice `tokio` ali `async-std`. V tem primeru bomo uporabili `tokio`, ker je ta knjižnica najbolj priljubljena.
+Tukaj se učimo, kako narediti prvi asinhroni API klic v nizkonivojskem jeziku Rust. Za začetek bomo uporabili knjižnico `reqwest`, ki je ena najbolj priljubljenih knjižnic za HTTP zahteve. Poleg tega bomo uporabili `tokio` kot asinhroni runtime, saj `reqwest` zahteva asinhrono okolje.
 
-### 1. Namestitev odvisnosti
+### Korak 1: Nastavitev projekta
 
-Najprej moramo v `Cargo.toml` dodati potrebne odvisnosti:
+Najprej ustvari nov Rust projekt:
+
+```bash
+cargo new moj_prvi_async_api_klic
+cd moj_prvi_async_api_klic
+```
+
+### Korak 2: Dodajte odvisnosti
+
+Odpri `Cargo.toml` in dodajte `dependencies`:
 
 ```toml
 [dependencies]
+reqwest = { version = "0.11", features = ["json"] }
 tokio = { version = "1", features = ["full"] }
-reqwest = "0.11"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
 ```
 
-- `tokio`: Asinhroni runtime za Rust.
-- `reqwest`: Knjižnica za HTTP kliente, ki podpira asinhrone klice.
+- `reqwest`: Za HTTP zahteve.
+- `tokio`: Asinhroni runtime.
+- `serde` in `serde_json`: Za delo s JSON podatki.
 
-### 2. Osnovni asinhroni API klic
+### Korak 3: Napišite kodo
 
-Nato napišemo osnovni primer asinhronega API klica. Uporabili bomo `reqwest` za pošiljanje HTTP zahtev in `tokio` za upravljanje asinhronega izvajanja.
+Odpri `src/main.rs` in napišite naslednjo kodo:
 
 ```rust
 use reqwest::Error;
+use serde::Deserialize;
+
+// Definirajte strukturo za JSON odgovor
+#[derive(Deserialize, Debug)]
+struct ApiOdgovor {
+    // Primer: Predpostavimo, da API vrne polje "message"
+    message: String,
+}
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    // URL API-ja, ki ga želimo klicati
-    let url = "https://jsonplaceholder.typicode.com/posts/1";
+    // URL API-ja, ki ga bomo klicali
+    let url = "https://api.example.com/data"; // Zamenjajte s pravim URL-jem
 
-    // Asinhrono pošljemo GET zahtevo
-    let response = reqwest::get(url).await?;
+    // Asinhroni GET poziv
+    let odgovor = reqwest::get(url).await?;
 
-    // Preverimo, ali je odgovor uspešen
-    if response.status().is_success() {
-        // Preberemo telo odgovora kot niz
-        let body = response.text().await?;
-        println!("Odgovor: {}", body);
+    // Preverite, ali je zahteva uspešna
+    if odgovor.status().is_success() {
+        // Parsiraj JSON odgovor
+        let api_odgovor: ApiOdgovor = odgovor.json().await?;
+        println!("Sporočilo iz API-ja: {}", api_odgovor.message);
     } else {
-        println!("Zahteva ni uspela s statusom: {}", response.status());
+        println!("Zahteva ni bila uspešna: {}", odgovor.status());
     }
 
     Ok(())
 }
 ```
 
-### 3. Razlaga kode
+### Korak 4: Poženite projekt
 
-- `#[tokio::main]`: Ta atribut omogoča, da je `main` funkcija asinhrona. `tokio` runtime bo upravljal asinhrono izvajanje.
-- `reqwest::get(url).await?`: Pošljemo asinhrono GET zahtevo na podani URL. `.await` čaka na dokončanje zahteve.
-- `response.text().await?`: Preberemo telo odgovora kot niz. Spet uporabimo `.await`, ker je ta operacija asinhrona.
-- `response.status()`: Preverimo statusni kode odgovora, da ugotovimo, ali je bil klic uspešen.
-
-### 4. Zagon programa
-
-Ko napišete kodo, jo lahko zaženete z ukazom:
+Zaženite projekt z ukazom:
 
 ```bash
 cargo run
 ```
 
-Če je vse pravilno nastavljeno, bi moral program izpisati vsebino API odgovora v terminal.
+### Razlaga kode
 
-### 5. Dodatni primeri
+1. **Struct `ApiOdgovor`**: To je struktura, ki predstavlja JSON odgovor API-ja. V tem primeru predpostavljamo, da API vrne polje `message`.
 
-Če želite poslati kompleksnejše zahteve (npr. POST z JSON vsebino), lahko uporabite naslednji primer:
+2. **`#[tokio::main]`**: Ta atribut omogoča asinhrono izvajanje funkcije `main`.
+
+3. **`reqwest::get(url).await?`**: To je asinhroni GET poziv na podani URL. `await` čaka na zaključek zahteve.
+
+4. **`odgovor.json().await?`**: Parsira JSON odgovor v strukturo `ApiOdgovor`.
+
+5. **`println!`**: Izpiše sporočilo, ki ga vrne API.
+
+### Primer uporabe
+
+Če želite testirati s pravim API-jem, lahko uporabite brezplačen API, kot je npr. `https://api.adviceslip.com/advice`, ki vrne naključen nasvet. V tem primeru bi struktura `ApiOdgovor` izgledala takole:
 
 ```rust
-use reqwest::Error;
-use serde_json::json;
+#[derive(Deserialize, Debug)]
+struct ApiOdgovor {
+    slip: Slip,
+}
 
-#[tokio::main]
-async fn main() -> Result<(), Error> {
-    let client = reqwest::Client::new();
-    let url = "https://jsonplaceholder.typicode.com/posts";
+#[derive(Deserialize, Debug)]
+struct Slip {
+    advice: String,
+    id: u32,
+}
+```
 
-    // Ustvarimo JSON telo za POST zahtevo
-    let new_post = json!({
-        "title": "Moja nova objava",
-        "body": "To je vsebina moje objave.",
-        "userId": 1,
-    });
+In URL bi bil:
 
-    // Asinhrono pošljemo POST zahtevo
-    let response = client
-        .post(url)
-        .json(&new_post)
-        .send()
-        .await?;
+```rust
+let url = "https://api.adviceslip.com/advice";
+```
 
-    if response.status().is_success() {
-        let body = response.text().await?;
-        println!("Odgovor: {}", body);
-    } else {
-        println!("
+### Zaključek
+
+To je osnovni primer asinhronega API klica v Rustu. Rust je nizkonivojski programski jezik, ki omogoča učinkovito delo z asinhronimi operacijami. V nadaljevanju bomo razširili ta primer z bolj zapletenimi funkcionalnostmi, kot so obdelava napak, avtentikacija itd.
