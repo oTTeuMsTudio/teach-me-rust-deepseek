@@ -1,0 +1,82 @@
+
+### Kaj so deklarativni makri?
+
+Deklarativni makroti se definirajo z uporabo `macro_rules!` sintakse. Eden od naprednejših konceptov pri deklarativnih makrih je **repetition**, ki omogoča, da se del kode ponovi večkrat.
+
+### Osnove deklarativnih makrov
+
+Preden se poglobimo v ponavljanje, si oglejmo osnovno strukturo deklarativnega makra:
+
+```rust
+macro_rules! pozdravi {
+    () => {
+        println!("Pozdravljen, svet!");
+    };
+}
+```
+
+Ta makro `pozdravi!` bo, ko ga pokličemo, izpisal "Pozdravljen, svet!".
+
+### Repetition v makrih
+
+Ponavljanje v makrih omogoča, da se določen ukaz kode ponovi večkrat. To je še posebej uporabno, ko želimo obdelati spremenljivo število argumentov.
+
+#### Sintaksa za ponavljanje
+
+Ponavljanje v makrih uporablja naslednjo sintakso:
+
+- `$( ... )*` – ponavljanje nič ali večkrat
+- `$( ... )+` – ponavljanje enkrat ali večkrat
+
+Znotraj oklepajev lahko uporabimo poljubno kodo, ki naj se ponovi.
+
+#### Primer: Makro za seštevanje števil
+
+Recimo, da želimo ustvariti makro, ki sešteje poljubno število števil. To lahko naredimo s ponavljanjem:
+
+```rust
+macro_rules! sestej {
+    ($($x:expr),*) => {
+        {
+            let mut vsota = 0;
+            $(vsota += $x;)*
+            vsota
+        }
+    };
+}
+
+fn main() {
+    let rezultat = sestej!(1, 2, 3, 4);
+    println!("Vsota je: {}", rezultat); // Izpis: Vsota je: 10
+}
+```
+
+#### Razlaga:
+
+1. `$($x:expr),*` – Vzorec, ki ujema poljubno število izrazov (`expr`), ločenih z vejico. `$x` je spremenljivka, ki vsebuje vsak izraz.
+2. `$(vsota += $x;)*` – Koda znotraj ponavljanja, ki se izvede za vsak ujemanje. V tem primeru se vsak izraz `$x` doda k `vsota`.
+
+#### Primer: Makro za ustvarjanje vektorja
+
+Še en primer: makro, ki ustvari vektor iz poljubnega števila elementov:
+
+```rust
+macro_rules! vektor {
+    ($($x:expr),*) => {
+        {
+            let mut v = Vec::new();
+            $(v.push($x);)*
+            v
+        }
+    };
+}
+
+fn main() {
+    let v = vektor!(1, 2, 3, 4);
+    println!("{:?}", v); // Izpis: [1, 2, 3, 4]
+}
+```
+
+### Zaključek
+
+Deklarativni makri s ponavljanji so zelo močno orodje v Rustu, ki omogoča fleksibilno generiranje kode. Z uporabo `$( ... )*` ali `$( ... )+` lahko ponavljamo del kode, kar je še posebej uporabno pri obdelavi spremenljivega števila argumentov.
