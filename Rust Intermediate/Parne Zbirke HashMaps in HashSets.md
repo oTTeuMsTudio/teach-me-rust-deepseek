@@ -1,10 +1,10 @@
 ### Kaj je `HashMap`?
 
-`HashMap` je zbirka (collection), ki shranjuje pare ključ-vrednost (key-value pairs). Vsak ključ je edinstven in se uporablja za dostop do pripadajoče vrednosti. `HashMap` uporablja **hash funkcijo** za preslikavo ključev v njihove pripadajoče vrednosti, kar omogoča hitro iskanje, vstavljanje in brisanje.
+`HashMap` je zbirka (collection), ki shranjuje pare ključ-vrednost (key-value pairs). Vsak ključ je unikat in brez njega nimamo dostopa do pripadajoče vrednosti. `HashMap` uporablja **hash funkcijo**, s katero preslika ključ v pripadajoče vrednosti, kar omogoča hitro iskanje, vstavljanje in brisanje.
 
 ### Kaj je `HashSet`?
 
-`HashSet` je zbirka, ki shranjuje samo edinstvene vrednosti (brez ključev). Prav tako uporablja hash funkcijo za hitro iskanje in preverjanje, ali element obstaja v množici. `HashSet` je podoben matematični množici, kjer vsak element obstaja samo enkrat.
+`HashSet` je zbirka, ki shranjuje samo unikatne vrednosti in to brez ključev. Prav tako uporablja hash funkcijo za hitro iskanje in preverjanje, ali element obstaja v množici ali ne. `HashSet` je podoben matematični množici, kjer vsak element obstaja samo enkrat.
 
 ### Uporaba `HashMap` v Rustu
 
@@ -14,44 +14,44 @@ Najprej moramo uvoziti `HashMap` iz standardne knjižnice:
 use std::collections::HashMap;
 ```
 
-#### Ustvarjanje `HashMap`
+#### Ustvarimo `HashMap`
 
 ```rust
 let mut map = HashMap::new();
 ```
 
-#### Dodajanje elementov
+#### Dodamo element
 
 ```rust
 map.insert(String::from("ključ1"), 10);
 map.insert(String::from("ključ2"), 20);
 ```
 
-#### Dostop do vrednosti
+#### Dostopimo do vrednosti
 
 ```rust
 if let Some(vrednost) = map.get("ključ1") {
-    println!("Vrednost za 'ključ1': {}", vrednost);
+    println!("Vrednost za 'ključ1': {vrednost}");
 }
 ```
 
-#### Posodabljanje vrednosti
+#### Posodobimo vrednost
 
 ```rust
 map.insert(String::from("ključ1"), 30); // Posodobi vrednost za "ključ1"
 ```
 
-#### Brisanje elementov
+#### Brišemo element
 
 ```rust
 map.remove("ključ2");
 ```
 
-#### Iteracija čez `HashMap`
+#### Iteriramo čez `HashMap`
 
 ```rust
 for (ključ, vrednost) in &map {
-    println!("{}: {}", ključ, vrednost);
+    println!("{kljuc}: {vrednost}");
 }
 ```
 
@@ -63,13 +63,13 @@ Najprej uvozimo `HashSet` iz standardne knjižnice:
 use std::collections::HashSet;
 ```
 
-#### Ustvarjanje `HashSet`
+#### Ustvarimo `HashSet`
 
 ```rust
 let mut set = HashSet::new();
 ```
 
-#### Dodajanje elementov
+#### Dodamo element
 
 ```rust
 set.insert("jabolko");
@@ -77,7 +77,7 @@ set.insert("banana");
 set.insert("jabolko"); // Ta vnos ne bo dodan, ker "jabolko" že obstaja
 ```
 
-#### Preverjanje obstoja elementa
+#### Preverimo element
 
 ```rust
 if set.contains("banana") {
@@ -85,13 +85,13 @@ if set.contains("banana") {
 }
 ```
 
-#### Brisanje elementov
+#### Brišemo element
 
 ```rust
 set.remove("banana");
 ```
 
-#### Iteracija čez `HashSet`
+#### Iteriramo čez `HashSet`
 
 ```rust
 for element in &set {
@@ -99,7 +99,7 @@ for element in &set {
 }
 ```
 
-### Primerjava `HashMap` in `HashSet`
+### Primerjamo `HashMap` in `HashSet`
 
 - **`HashMap`** se uporablja, ko želimo shranjevati pare ključ-vrednost.
 - **`HashSet`** se uporablja, ko želimo shranjevati samo edinstvene vrednosti.
