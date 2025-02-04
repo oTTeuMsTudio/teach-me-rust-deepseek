@@ -31,7 +31,7 @@ use std::cmp::Ordering;
 fn main() {
     println!("Ugani število!");
 
-    let skrivno_stevilo = rand::thread_rng().gen_range(1..101);
+    let skrivno_stevilo = rand::rng().random_range(1..101);
 
     loop {
         println!("Prosim, vnesi svoje ugibanje.");
