@@ -31,7 +31,7 @@ use std::cmp::Ordering;
 fn main() {
     println!("Ugani število!");
 
-    let skrivno_stevilo = rand::rng().random_range(1..101);
+    let skrivno_stevilo = rand::thread_rng().gen_range(1..101);
 
     loop {
         println!("Prosim, vnesi svoje ugibanje.");
@@ -68,7 +68,7 @@ fn main() {
 
 - **Uvoz knjižnic**: Uvozimo potrebne knjižnice za branje vnosa (`io`), generiranje naključnih števil (`rand::Rng`) in primerjanje (`std::cmp::Ordering`).
 
-- **Generiranje skrivnega števila**: Uporabimo `rand::thread_rng().gen_range(1..101)` za generiranje naključnega števila med 1 in 100.
+- **Generiranje skrivnega števila**: Uporabimo `rand::rng().random_range(1..101)` za generiranje naključnega števila med 1 in 100.
 
 - **Zanka za ugibanje**: Uporabimo neskončno zanko (`loop`), ki se bo izvajala, dokler igralec ne ugane pravilnega števila.
 
