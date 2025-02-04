@@ -1,1 +1,94 @@
+Osnove spletnih strežnikih in kako uporabljati Actix Web uvod.
+
+### Kaj je spletni strežnik?
+
+Spletni strežnik je program, ki sprejema requeste od odjemalcev (običajno spletnih brskalnikov) in vrača response. Ti responsi so pogosto spletne strani, slike ali druge vrste podatkov.
+
+### Kaj je Actix Web?
+
+Actix Web je spletni framework za izdelavo spletnih aplikacij in je znan po svoji hitrosti in varnosti, saj tako kot Rust uporablja ownership in sinhronizacijo (concurrency).
+
+### Osnove Actix Web
+
+1. **Nato ustvari nov Rust projekt**:
+
+   ```bash
+   cargo new moj-spletni-streznik
+   cd moj-spletni-streznik
+   ```
+
+   Dodaj Actix Web v `Cargo.toml`:
+
+   ```toml
+   [dependencies]
+   actix-web = "4.0"
+   ```
+
+2. **Osnovna spletna aplikacija**:
+   Ustvari osnovno spletno aplikacijo v `src/main.rs`:
+
+   ```rust
+   use actix_web::{web, App, HttpServer, HttpResponse, Responder};
+
+   async fn pozdravi() -> impl Responder {
+       HttpResponse::Ok().body("Pozdravljen, svet!")
+   }
+
+   #[actix_web::main]
+   async fn main() -> std::io::Result<()> {
+       HttpServer::new(|| {
+           App::new()
+               .route("/", web::get().to(pozdravi))
+       })
+       .bind("127.0.0.1:8080")?
+       .run()
+       .await
+   }
+   ```
+
+   - `HttpServer::new` ustvari nov spletni strežnik.
+   - `App::new` ustvari novo aplikacijo.
+   - `.route("/", web::get().to(pozdravi))` doda route za korensko pot (`/`), ki obiskovalcu vrne sporočilo "Pozdravljen, svet!".
+   - `HttpServer::bind` poveže strežnik na naslov `127.0.0.1:8080`.
+
+3. **Zagon aplikacije**:
+   Zaženi aplikacijo s pomočjo Cargo:
+
+   ```bash
+   cargo run
+   ```
+
+   Odpri brskalnik in obišči `http://127.0.0.1:8080`. Videl boš sporočilo "Pozdravljen, svet!".
+
+4. **Dodajanje več route-ov**:
+   Lahko dodamo več poti in obravnavamo različne metode (GET, POST, itd.):
+
+   ```rust
+   use actix_web::{web, App, HttpServer, HttpResponse, Responder};
+
+   async fn pozdravi() -> impl Responder {
+       HttpResponse::Ok().body("Pozdravljen, svet!")
+   }
+
+   async fn poslji() -> impl Responder {
+       HttpResponse::Ok().body("Sporočilo prejeto!")
+   }
+
+   #[actix_web::main]
+   async fn main() -> std::io::Result<()> {
+       HttpServer::new(|| {
+           App::new()
+               .route("/", web::get().to(pozdravi))
+               .route("/poslji", web::post().to(poslji))
+       })
+       .bind("127.0.0.1:8080")?
+       .run()
+       .await
+   }
+   ```
+
+   Tukaj smo dodali novo pot `/poslji`, ki obravnava POST zahteve.
+
+Več informacij v [uradni dokumentaciji Actix Web](https://actix.rs/).
+
 
