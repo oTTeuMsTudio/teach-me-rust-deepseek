@@ -4,5 +4,6 @@
 ## Programiramo, izdelujemo programe: 
 - Command line to-do list program
 - Aplikacijo z orodjem Leptos.dev
-- games, igre
-- 
+- Games, igre
+- Generator 3D modelov
+- Modelirnik CAD and Mesh
