@@ -3,6 +3,6 @@
 
 ## Programiramo, izdelujemo programe: 
 - Command line to-do list program
-- Aplikacijo v Leptos.dev framework-u
+- Aplikacijo z orodjem Leptos.dev
 - games, igre
 - 
