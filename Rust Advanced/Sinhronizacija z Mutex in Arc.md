@@ -1,4 +1,4 @@
-Varno deljenje podatkov med thread-i rešujemo s večnitnostjo ali hkratnost, sočasnost (concurrency) `Mutex` in `Arc`.
+Varno deljenje podatkov med thread-i rešujemo s sinhronizacijo (večnitnost ali hkratnost ali sočasnost ali concurrency) `Mutex` in `Arc`.
 ### Kaj je `Mutex`?
 
 `Mutex` je kratica za "Mutual Exclusion". To je sinhronizacijski primitiv, ki omogoča, da le en thread hkrati dostopa do deljenih podatkov. Ko thread želi dostopati do podatkov, mora najprej zakleniti (`lock`) `Mutex`. Če je `Mutex` že zaklenjen, bo nit čakala, dokler se ne odklene.
