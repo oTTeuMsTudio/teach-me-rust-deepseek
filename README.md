@@ -1,7 +1,7 @@
-# Predavanje sistemsko programiranje Rust
-### Teach me to code in Rust in Slovenian. Nauči se programirati v sistemskem jeziku Rust.
+# Nizkonivojski programski jezik Rust
+### Nauči se programirati v sistemskem jeziku Rust.
 
-## Programiramo, izdelujemo programe: 
+## Pišemo programe: 
 - Command line to-do list program
 - Aplikacijo z workflow agenti
 - Games, igre
