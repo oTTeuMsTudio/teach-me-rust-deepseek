@@ -1,4 +1,5 @@
-Kako bi lahko zgradili projekt za delovni tok s tremi agenti (vodja projekta, arhitekt rešitev in razvijalec zaledja) v Rustu. Ker je to obsežen projekt, bomo razdelili proces na manjše, obvladljive korake in se osredotočili na ključne koncepte.
+# Uvod v izdelavo agentov vodja projekta, solution arhitekt back-end developer
+Ker je to obsežen projekt, bomo razdelili proces na manjše, obvladljive korake in se osredotočili na ključne koncepte.
 
 **1. Definiranje Agentov in Njihovih Nalog:**
 
