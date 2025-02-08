@@ -13,3 +13,4 @@
 - Odprtokodni model agentov
 - p2p chat
 - Develop and optimize AI agents using LLM frameworks. Experiment with different agent architectures to improve performance and efficiency. Implement prompt engineering strategies to enhance the agent reasoning and task execution. Refine and iterate on agent performance, experiment with new architectures and optimize agent workflows.
+- Bitcoin/Solana like kriptovaluto z blockchain like timestamp-om
