@@ -14,3 +14,4 @@
 - p2p chat
 - Develop and optimize AI agents using LLM frameworks. Experiment with different agent architectures to improve performance and efficiency. Implement prompt engineering strategies to enhance the agent reasoning and task execution. Refine and iterate on agent performance, experiment with new architectures and optimize agent workflows.
 - Bitcoin/Solana like kriptovaluto z blockchain like timestamp-om
+- NoApi like aplikacijo. fully integrated rust web framework( Axum + leptos.dev)with Hot Reload – Instant updates without restarting the server, Type Syncing – Seamless type safety between frontend & backend, Rust Server Functions – Call Rust functions directly from the frontend, File-based Routing – Simple and intuitive route management, Fullstack (Leptos + Rust + Axum)
