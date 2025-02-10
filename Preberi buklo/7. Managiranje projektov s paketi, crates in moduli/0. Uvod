@@ -1,1 +1,280 @@
+Poglejmo si upravljanje rastočih projektov s paketi, zaboji (crates) in moduli. To je ključnega pomena za organizacijo in vzdrževanje večjih Rust projektov.
+
+**Razumevanje Osnovnih Konceptov**
+
+- **Paket (Package):** Paket je najvišja raven organizacije v Rustu. Vsebuje enega ali več zabojev (crates). Predstavljaj si ga kot direktorij, ki vsebuje datoteke `Cargo.toml` (opis paketa) in druge datoteke, ki sestavljajo tvoj projekt. Ko ustvariš nov projekt z `cargo new`, ustvariš paket.
+    
+- **Zaboj (Crate):** Zaboj je kompilacijska enota v Rustu. Lahko je _binarni_ (izvršljiv program) ali _knjižnični_ (koda, ki jo lahko uporabljajo drugi zaboji). Vsak paket _mora_ vsebovati vsaj en zaboj (lib). Dodatne zaboje (bin, examples, tests) lahko dodaš znotraj paketa.
+    
+- **Modul (Module):** Moduli so znotraj zaboja in služijo za organizacijo kode v logične skupine. Omogočajo ti, da razbiješ večji zaboj na manjše, bolj obvladljive dele. Moduli lahko vsebujejo druge module, funkcije, strukture, itd.
+    
+
+**Kako Delujejo Skupaj**
+
+1. **Paket vsebuje:** Enega ali več zabojev.
+2. **Zaboj vsebuje:** Module, ki organizirajo kodo znotraj zaboja.
+3. **Modul vsebuje:** Funkcije, strukture, druge module, itd.
+
+**Primer: Struktura Projekta**
+
+```
+my-project/  (Paket)
+├── Cargo.toml
+└── src/
+    ├── lib.rs     (Knjižnični zaboj - privzeti)
+    ├── main.rs    (Binarni zaboj - privzeti)
+    └── my_module/
+        └── mod.rs   (Modul)
+```
+
+**`Cargo.toml` (Opis Paketa)**
+
+Datoteka `Cargo.toml` vsebuje metadata o tvojem paketu, vključno z odvisnostmi, imenom, verzijo itd. Določa tudi zaboje v paketu.
+
+Ini, TOML
+
+```toml
+[package]
+name = "my-project"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Sem dodajamo odvisnosti od drugih zabojev
+```
+
+**`src/lib.rs` (Knjižnični Zaboj)**
+
+To je vstopna točka za tvoj knjižnični zaboj. Tukaj definiraš javni vmesnik (API) za tvoj zaboj.
+
+```rust
+// V src/lib.rs
+pub mod my_module; // Definiramo modul
+
+pub fn add(a: i32, b: i32) -> i32 {
+    my_module::add_numbers(a, b) // Klic funkcije iz modula
+}
+```
+
+**`src/main.rs` (Binarni Zaboj)**
+
+To je vstopna točka za tvoj binarni zaboj (izvršljiv program).
+```rust
+// V src/main.rs
+use my_project::add; // Uvozimo funkcijo iz knjižničnega zaboja
+
+fn main() {
+    let result = add(5, 3);
+    println!("Rezultat: {}", result);
+}
+```
+
+**`src/my_module/mod.rs` (Modul)**
+
+Tukaj definiraš funkcionalnost svojega modula.
+
+```rust
+// V src/my_module/mod.rs
+pub fn add_numbers(a: i32, b: i32) -> i32 {
+    a + b
+}
+```
+
+**Ključne Besede za Module**
+
+- `mod`: Definira nov modul.
+- `pub`: Naredi element (funkcijo, strukturo, itd.) javen, da ga lahko uporabljajo drugi moduli ali zaboji.
+- `use`: Uvozi element iz drugega modula ali zaboja v trenutni obseg.
+
+**Prednosti Uporabe Modulov in Zabojev**
+
+- **Organizacija Kode:** Lažje je obvladovati večje projekte, če so razdeljeni na manjše, logične enote.
+- **Ponovna Uporaba Kode:** Knjižnične zaboje lahko ponovno uporabimo v drugih projektih.
+- **Ločevanje Odgovornosti:** Različni moduli lahko imajo različne odgovornosti, kar olajša razvoj in vzdrževanje.
+- **Skrivanje Podrobnosti Implementacije:** Lahko skrijemo notranje delovanje modulov in izpostavimo le javni vmesnik.
+
+**Primer Uporabe `use`**
+
+Obstajajo različni načini uporabe `use`:
+
+- `use my_project::my_module::add_numbers;` - Uvozi specifično funkcijo.
+- `use my_project::my_module::*;` - Uvozi vse javne elemente iz modula.
+- `use my_project::add;` - Uvozi funkcijo iz drugega zaboja (v tem primeru iz `lib.rs`).
+
+
+# Qwen razlaga
+Spodaj je razlaga o upravljanju projektov z paketi, crates in moduli.
+
+---
+
+### Upravljanje rastučih projektov v Rust
+
+Ko se projekti povečujejo v velikosti in zahtevnosti, postane pomembno organizirati kodo na način, ki omogoča lažje održevanje, ponovno uporabo in razumevanje. To dosežemo z uporabo **paketov**, **crates** in **modulov**.
+
+---
+
+### 1. Paketi (Packages)
+
+**Paket** je logična enota kode, ki jo lahko skompajlamo, delimo in distribuiramo. Vsak projekt v Rustu ima vsaj en paket, ki ga definira datoteka `Cargo.toml`. 
+
+- **Kaj je Cargo?**
+  - Cargo je orodje za gradnjo in upravljanje Rustovih projektov.
+  - S pomočjo `Cargo.toml` določimo podatke o paketu, kot so ime, avtor, različica, odvisnosti itd.
+
+- **Kako deluje paket?**
+  - Vsak paket vsebuje en ali več kratev.
+  - Primer: Če imate datoteko `Cargo.toml`, ki določa, da je vaš projekt imenovan "moj_projekt", bo to tudi ime paketa.
+
+#### Primer:
+```toml
+[package]
+name = "moj_projekt"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+```
+
+---
+
+### 2. Crates
+
+**Crates** so osnovni gradniki v Rustu, ki jih lahko drugi projekti uporabljajo. Obstajata dva vrsta kratev:
+
+- **Binary Crates:**
+  - Skompajlirajo v izvedljive datoteke.
+  - Tipično uporabljeni za aplikacije, ki jih uporabljajo končni uporabniki.
+
+- **Library Crates:**
+  - Skompajlirajo v knjižnice, ki jih lahko drugi nato uporabljajo.
+  - Tipično uporabljeni za ponovno uporabo funkcionalnosti.
+
+- **Kako določiti vrsto krata?**
+  - V `Cargo.toml` določite, ali želite ustvariti binarni ali knjižnični crate:
+    ```toml
+    [lib]  # Za knjižnični crate
+    [bin]  # Za binarni crate
+    ```
+
+#### Primer:
+```toml
+[lib]
+name = "moja_knjiznica"
+
+[[bin]]
+name = "moja_aplikacija"
+path = "src/main.rs"
+```
+
+---
+
+### 3. Moduli (Modules)
+
+**Moduli** so orodje za organizacijo kode v Rustu. Omogočajo, da strukturirate svoj code pool na logične skupine, kar pomeni lažje ohranjanje in razumevanje.
+
+- **Začetek s moduli:**
+  - Uporabite ključno besedo `mod` za definicijo novega modula.
+  - Vsak modul lahko vsebuje funkcije, strukture, enumere, pa tudi druge module.
+
+#### Primer:
+```rust
+// src/main.rs
+mod moj_modul;
+
+fn main() {
+    moj_modul::pozdrav();
+}
+```
+
+```rust
+// src/moj_modul.rs
+pub fn pozdrav() {
+    println!("Pozdravljen!");
+}
+```
+
+- **Privatnost in vidnost:**
+  - Elementi v modulu so po privzetih privatni (`private`).
+  - Uporabite `pub` za nastavitev elementa na javno dostopen (`public`).
+
+#### Primer:
+```rust
+// src/main.rs
+mod moj_modul;
+
+fn main() {
+    moj_modul::javna_funkcija(); // Deluje, ker je funkcija javna.
+    // moj_modul::privatna_funkcija(); // Ne dela, ker je funkcija privatna.
+}
+
+// src/moj_modul.rs
+pub fn javna_funkcija() {
+    println!("Javna funkcija.");
+}
+
+fn privatna_funkcija() {
+    println!("To je privatna funkcija.");
+}
+```
+
+---
+
+### 4. Struktura projekta
+
+Ko projekt raste, je dobra praksa organizirati kodo v hierarhične module. To pomeni, da boste morda imeli več datotek in poddirektorijev.
+
+#### Primer strukture:
+```
+src/
+├── main.rs          # Glavna datoteka za binarni kratak
+├── library.rs       # Glavna datoteka za knjižnični kratak
+├── modul1/          # Poddirektorij za modul1
+│   └── mod.rs       # Definicija modula1
+└── modul2/          # Poddirektorij za modul2
+    └── mod.rs       # Definicija modula2
+```
+
+- **Kako uporabiti poddirektorije?**
+  - Datoteka `mod.rs` označuje, da je direktorij del modula.
+  - Primer:
+    ```rust
+    // src/main.rs
+    mod modul1;
+    mod modul2;
+
+    fn main() {
+        modul1::funkcija_v_modulu1();
+        modul2::funkcija_v_modulu2();
+    }
+    ```
+
+---
+
+### 5. Razpisanje odvisnosti
+
+Ko uporabljate druge crate (knjižnice) v svojem projektu, morate jih določiti v `Cargo.toml`.
+
+#### Primer:
+```toml
+[dependencies]
+rand = "0.8"  # Dodamo crate rand za naključne številke
+serde = { version = "1.0", features = ["derive"] }  # Dodamo serde za serializacijo
+```
+
+- **Kako uporabiti odvisnosti?**
+  - Uporabite `use` za uvoz funkcionalnosti iz drugih kratekov.
+    ```rust
+    use rand::Rng;
+
+    fn main() {
+        let nakljucno_stevilo = rand::thread_rng().gen_range(1..=100);
+        println!("Naključno število: {}", nakljucno_stevilo);
+    }
+    ```
+
+---
+
+### Zaključek
+
+Upravljanje rastučih projektov v Rustu zahteva dobro organizacijo kode z uporabo paketov, kratekov in modulov. S pravilno strukturo in razumevanjem konceptov kot so privatnost, vidnost in odvisnosti, boste lahko ustvarili modularne, održne in preprosto razumljive programe.
 
