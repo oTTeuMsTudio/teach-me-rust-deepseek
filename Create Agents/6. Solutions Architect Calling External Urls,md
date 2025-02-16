@@ -1,0 +1,223 @@
+```rust
+use reqwest; // Add this crate to your Cargo.toml: reqwest = { version = "0.13", features = ["json"] }
+use serde_json::Value; // Add this crate to your Cargo.toml: serde_json = "1"
+
+async fn fetch_data_from_url(url: &str) -> Result<Value, Box<dyn std::error::Error>> {
+    let response = reqwest::get(url).await?;
+
+    if !response.status().is_success() {
+        return Err(format!("HTTP error: {}", response.status()).into());
+    }
+
+    let data: Value = response.json().await?; // Assuming JSON response
+    Ok(data)
+}
+
+pub async fn print_project_scope(project_name: &str) -> Result<(), Box<dyn std::error::Error>> {
+    println!("Project Scope for: {}", project_name);
+
+    // Example 1: Fetching data from a public API (JSON)
+    let api_url = "https://jsonplaceholder.typicode.com/todos/1"; // Example API
+    match fetch_data_from_url(api_url).await {
+        Ok(data) => {
+            println!("API Data:");
+            println!("{}", serde_json::to_string_pretty(&data)?); // Print formatted JSON
+            // Access specific fields:
+            if let Some(title) = data["title"].as_str() {
+                println!("Todo Title: {}", title);
+            }
+        }
+        Err(err) => println!("Error fetching API data: {}", err),
+    }
+
+    // Example 2: Fetching data from another URL (plain text)
+    let text_url = "https://www.rust-lang.org/"; // Example website
+    match reqwest::get(text_url).await {
+        Ok(response) => {
+            if !response.status().is_success() {
+                println!("Error fetching website: {}", response.status());
+            } else {
+                match response.text().await {
+                    Ok(text) => {
+                        println!("\nWebsite Content (excerpt):");
+                        // Print a snippet to avoid overwhelming output:
+                        let snippet = &text[..std::cmp::min(500, text.len())]; // First 500 chars
+                        println!("{}", snippet);
+                    }
+                    Err(err) => println!("Error reading website content: {}", err),
+                }
+            }
+        }
+        Err(err) => println!("Error fetching website: {}", err),
+    }
+
+    Ok(())
+}
+
+
+#[tokio::main] // Required for async functions
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    print_project_scope("My Awesome Project").await?;
+    Ok(())
+}
+
+```
+
+Key improvements and explanations:
+
+1. **`reqwest` and `serde_json` dependencies:** The code now explicitly adds the necessary crates to `Cargo.toml`. You'll need to add these:
+    
+    Ini, TOML
+    
+    ```
+    reqwest = { version = "0.13", features = ["json"] } // Or latest version
+    serde_json = "1" // Or latest version
+    tokio = { version = "1", features = ["full"] } // Needed for the #[tokio::main] macro
+    ```
+    
+    Run `cargo add reqwest serde_json tokio` in your project directory to add them automatically.
+    
+2. **`fetch_data_from_url` function:** This function handles the HTTP request and JSON parsing. It's now more robust, returning a `Result` to handle potential errors. It also uses the `json()` method of the `reqwest::Response` to directly parse the JSON.
+    
+3. **Error Handling:** The code now uses `match` statements to handle `Result`s properly, printing informative error messages. This is crucial for real-world applications. The `?` operator is used to propagate errors up the call stack concisely.
+    
+4. **JSON Handling:** The example uses `serde_json` to parse the JSON response. It shows how to access specific fields within the JSON data. The `serde_json::to_string_pretty()` function is used to print the JSON in a nicely formatted way.
+    
+5. **Plain Text Example:** The code now includes an example of fetching plain text from a URL (e.g., a website). It demonstrates how to get the response body as a string and print a snippet to avoid printing the entire website content.
+    
+6. **`tokio::main` macro:** The `#[tokio::main]` macro is essential for using `async` and `await`. It sets up the Tokio runtime, which is necessary for asynchronous operations.
+    
+7. **Clearer Output:** The output is now more organized and includes labels for the different sections (API data, website content).
+    
+8. **`std::cmp::min`:** Used to prevent potential panics when creating the website content snippet if the text is shorter than 500 characters.
+    
+
+**How to run this code:**
+
+1. **Create a new Rust project:** `cargo new my-project`
+2. **Add dependencies:** Add the `reqwest`, `serde_json`, and `tokio` crates to your `Cargo.toml` file as shown above.
+3. **Replace `src/main.rs`:** Copy and paste the code into your `src/main.rs` file.
+4. **Run:** `cargo run`
+
+This improved example provides a much more solid foundation for making external URL calls in your Rust code. Remember to handle errors appropriately and choose the right method for parsing the response based on the data format (JSON, plain text, etc.).
+
+# Qwen razlaga
+
+To write a Rust program that acts as a solutions architect and calls external URLs in the `pub fn print_project_scope` function, we need to consider several aspects:
+
+1. **HTTP Client**: To call external URLs, we need an HTTP client library. The most popular one for Rust is `reqwest`.
+2. **Asynchronous Programming**: Since network requests are inherently asynchronous, we will use `async`/`await` syntax.
+3. **Error Handling**: Proper error handling is crucial when dealing with external APIs.
+4. **Project Scope Definition**: The function should define and print the project scope while fetching relevant data from an external URL.
+
+Below is a step-by-step explanation and implementation:
+
+---
+
+### Step 1: Add Dependencies
+First, add the necessary dependencies to your `Cargo.toml` file:
+```toml
+[dependencies]
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+```
+
+- `reqwest`: For making HTTP requests.
+- `tokio`: Asynchronous runtime for Rust.
+- `serde`: For JSON serialization/deserialization (if needed).
+
+---
+
+### Step 2: Define the Function
+Here’s how you can implement the `print_project_scope` function:
+
+```rust
+use reqwest::Error;
+use serde::Deserialize;
+
+// Define a struct to represent the data fetched from the external API
+#[derive(Deserialize, Debug)]
+struct ProjectData {
+    name: String,
+    description: String,
+    budget: f64,
+}
+
+// Public function to print the project scope
+pub async fn print_project_scope(api_url: &str) -> Result<(), Error> {
+    // Fetch data from the external API
+    let response = reqwest::get(api_url).await?;
+    
+    // Ensure the request was successful
+    if !response.status().is_success() {
+        eprintln!("Failed to fetch data: {}", response.status());
+        return Err(Error::from(reqwest::Error::new(
+            reqwest::StatusCode::INTERNAL_SERVER_ERROR,
+            "Request failed",
+        )));
+    }
+
+    // Parse the JSON response into a ProjectData struct
+    let project_data: ProjectData = response.json().await?;
+
+    // Print the project scope
+    println!("Project Scope:");
+    println!("Name: {}", project_data.name);
+    println!("Description: {}", project_data.description);
+    println!("Budget: ${:.2}", project_data.budget);
+
+    Ok(())
+}
+
+#[tokio::main]
+async fn main() {
+    // Example usage of the function
+    let api_url = "https://example.com/api/project"; // Replace with your API URL
+    match print_project_scope(api_url).await {
+        Ok(_) => println!("Project scope printed successfully."),
+        Err(e) => eprintln!("Error: {}", e),
+    }
+}
+```
+
+---
+
+### Explanation of the Code
+
+1. **Struct Definition**:
+   - The `ProjectData` struct represents the structure of the JSON response from the external API. Adjust the fields as per your API's response format.
+
+2. **Async Function**:
+   - The `print_project_scope` function is marked as `async` because it involves waiting for the HTTP request to complete.
+
+3. **Fetching Data**:
+   - The `reqwest::get` function sends a GET request to the specified URL.
+   - The `.await` keyword ensures that the function waits for the response.
+
+4. **Error Handling**:
+   - If the HTTP request fails or the status code indicates an error, the function prints an error message and returns an error.
+
+5. **Parsing JSON**:
+   - The `response.json().await?` parses the JSON response into the `ProjectData` struct.
+
+6. **Printing the Scope**:
+   - The function prints the project name, description, and budget in a structured format.
+
+7. **Main Function**:
+   - The `main` function demonstrates how to call `print_project_scope` with an example API URL.
+
+---
+
+### Notes
+
+8. **Blocking vs. Async**:
+   - If you prefer synchronous code, you can use `reqwest::blocking`, but this is less efficient for I/O-bound tasks.
+
+9. **Customizing the API Call**:
+   - You can modify the function to accept query parameters, headers, or other configurations as needed.
+
+10. **Testing**:
+   - Use a mock API or a local server to test the function before integrating it with real external URLs.
+
+This implementation provides a solid foundation for a solutions architect to dynamically fetch and display project scope information using Rust.
