@@ -1,4 +1,7 @@
-# Nizkonivojski programski jezik Rust
+# Studying AI Agent Engineering
+## Building an end-to-end personal branding agent
+### Agent with minimal requiremnts would be: run on 4o or Sonnet 3.5, crawl LinkedIn and X to identify post and voices for certain keywords each day, aggregate and analyze top posts, Idea Generation, Post/Copy generation in my style and tone of voice, Published vi API to each platform
+
 ### Nauči se programirati v sistemskem jeziku Rust. Potrebujemo znanje: development with LLMs, AI agents, and Vector Databases
 
 ## Pišemo programe: 
@@ -16,3 +19,4 @@
 - Bitcoin/Solana like kriptovaluto z blockchain like timestamp-om
 - NoApi like aplikacijo. fully integrated rust web framework( Axum + leptos.dev)with Hot Reload – Instant updates without restarting the server, Type Syncing – Seamless type safety between frontend & backend, Rust Server Functions – Call Rust functions directly from the frontend, File-based Routing – Simple and intuitive route management, Fullstack (Leptos + Rust + Axum)
 - Svoj Shell, Fyrox.rs, grep, Interpreter, HTTP server, Redis, BitTorrent, Kafka, Git, SQLite, DNS server
+- Agent with minimal requiremnts: run on 4o or Sonnet 3.5, crawl LinkedIn and X to identify post and voices for certain keywords each day, aggreagaet
