@@ -1,6 +1,12 @@
 # Studying AI Agent Engineering
 ## Building an end-to-end personal branding agent
-### Agent with minimal requiremnts would be: run on 4o or Sonnet 3.5, crawl LinkedIn and X to identify post and voices for certain keywords each day, aggregate and analyze top posts, Idea Generation, Post/Copy generation in my style and tone of voice, Published vi API to each platform
+### Agent with minimal requiremnts would be: 
+- run on 4o or Sonnet 3.5,
+- Ability to crawl LinkedIn and X to identify post and voices for certain keywords each day,
+- Aggregate and analyze top posts,
+- Idea Generation,
+- Post/Copy generation in my style and tone of voice,
+- Published vi API to each platform
 
 ### Nauči se programirati v sistemskem jeziku Rust. Potrebujemo znanje: development with LLMs, AI agents, and Vector Databases
 
