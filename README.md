@@ -1,4 +1,4 @@
-# Studying AI Agent Engineering
+# Studying AI Engineering (Agentic AI)
 ## Building an end-to-end personal branding agent
 ### Agent with minimal requiremnts would be: 
 - run on 4o or Sonnet 3.5,
