@@ -1,6 +1,6 @@
-# Studying AI Engineering (Agentic Machine)
-## Building an end-to-end personal branding agent machine
-### Agent machine with minimal requiremnts would be: 
+# Studying AI Engineering (Agentic Workflow Machine)
+## Building an end-to-end personal branding workflow machine
+### Agent with minimal requiremnts would be: 
 - run on 4o or Sonnet 3.5,
 - Ability to crawl LinkedIn and X to identify post and voices for certain keywords each day,
 - Aggregate and analyze top posts,
