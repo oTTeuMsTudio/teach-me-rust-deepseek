@@ -1,6 +1,6 @@
 # Studying AI Engineering (Agentic Workflow Machine)
-## Building UI Layer for Knowledge Work (end-to-end personal branding workflow machine)
-### Agent (CRUD Application) with minimal requiremnts would be: 
+## Building UI Layer for Knowledge Work (CRUD Application) (end-to-end personal branding workflow machine)
+### Agent with minimal requiremnts is doing what? Task is?: 
 - run on 4o or Sonnet 3.5,
 - Ability to crawl LinkedIn and X to identify post and voices for certain keywords each day,
 - Aggregate and analyze top posts,
