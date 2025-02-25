@@ -1,4 +1,5 @@
 # Studying AI Engineering (Agentic Workflow Machine)
+## Today cognitive labor may be automated. What is the new cognitive labor that gets created? Don`t conflate knowledge worker with knowledge work. The knowledge work of today could probably be automated.
 ## Building UI Layer for Knowledge Work (CRUD Application) (end-to-end personal branding workflow machine)
 ### Agent with minimal requiremnts is doing what? Task in multiagentic internet is?: 
 - run on whatever appropriate LLM there is,
