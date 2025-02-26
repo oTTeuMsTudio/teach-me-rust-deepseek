@@ -1,3 +1,5 @@
+# CRUD Application using Agentic Machine Design Patterns
+
 Let's break down the problem into smaller parts and build a CRUD (Create, Read, Update, Delete) application using an **agentic machine** design pattern in Rust. An agentic machine is essentially a system where multiple agents (or actors) communicate with each other to handle tasks asynchronously. This approach is similar to actor-based concurrency models like Akka in Scala or Elixir's OTP.
 
 In this example, we'll use Rust's `tokio` runtime for asynchronous programming and channels (`mpsc`) for inter-agent communication. We'll create a simple CRUD application for managing "Items" with the following operations:
