@@ -1,3 +1,5 @@
+# Agentic Cognitive Knowledge Worker as a Machine
+
 Let's break this down step by step. We'll create a Rust program that simulates a "Managing Agent" with roles of a Solutions Architect and Backend Developer. The program will take user input as a goal, process it, and print it out.
 
 Here’s how we can structure the program:
