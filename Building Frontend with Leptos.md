@@ -1,3 +1,5 @@
+# Building Frontend Application with Leptos.dev
+
 Leptos is a modern, reactive, and efficient framework for building frontend applications in Rust. It compiles to WebAssembly (Wasm) and provides a seamless developer experience with features like hot-reloading, minimal boilerplate, and excellent performance. Lets start with Leptos for frontend development.
 
 ---
