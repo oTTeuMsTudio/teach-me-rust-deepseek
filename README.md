@@ -3,13 +3,7 @@
 ## We must break down the problem into smaller parts and build a CRUD (Create, Read, Update, Delete) application using an **agentic machine** design pattern in Rust. An agentic machine is essentially a system where multiple agents (or actors) communicate with each other to handle tasks asynchronously. This approach is similar to actor-based concurrency models like Akka in Scala or Elixir's OTP.
 ## Today cognitive labor may be automated. What is the new cognitive labor that gets created? Dont conflate knowledge worker with knowledge work. The knowledge work of today could probably be automated. Thats a different abstraction.
 ## Building UI Layer for Knowledge Work (CRUD Application) (end-to-end personal branding Agentic Machine Design Pattern Knowledge Worker)
-### Agent with minimal requiremnts is doing what? Task in multiagentic internet is?: 
-- run on whatever appropriate LLM there is,
-- Ability to crawl LinkedIn and X to identify post and voices for certain keywords each day,
-- Aggregate and analyze top posts,
-- Idea Generation,
-- Post/Copy generation in my style and tone of voice,
-- Published vi API to each platform
+
 
 ### Nauči se programirati v sistemskem jeziku Rust. Potrebujemo znanje: development with LLMs, AI agents, and Vector Databases
 
