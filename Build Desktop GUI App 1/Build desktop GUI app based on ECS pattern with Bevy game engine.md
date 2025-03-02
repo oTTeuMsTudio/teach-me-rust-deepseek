@@ -1,6 +1,6 @@
-https://muongkimhong.github.io/famiq/gettingstart.html
-https://bevyengine.org/learn/quick-start/introduction/
-https://github.com/MuongKimhong/famiq?tab=readme-ov-file
+- https://muongkimhong.github.io/famiq/gettingstart.html
+- https://bevyengine.org/learn/quick-start/introduction/
+- https://github.com/MuongKimhong/famiq?tab=readme-ov-file
 
 # Build desktop GUI app based on ECS pattern with Bevy game engine
 
