@@ -1,3 +1,7 @@
+https://muongkimhong.github.io/famiq/gettingstart.html
+https://bevyengine.org/learn/quick-start/introduction/
+https://github.com/MuongKimhong/famiq?tab=readme-ov-file
+
 # Build desktop GUI app based on ECS pattern with Bevy game engine
 
 Building a desktop GUI application with Rust is an exciting endeavor, and the Famiq framework (linked in your question) seems to be a promising tool for this purpose. Lets build a desktop GUI app using Bevy.
