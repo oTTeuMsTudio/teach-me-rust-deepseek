@@ -1,5 +1,6 @@
 # Studying AI Engineering 
 # Studying Agentic Design Pattern Knowledge Machine
+## Designing Agents for Building Construction Game in Rust. To build a construction game in Rust, we can approach the problem by designing agents (or entities) that interact with each other to simulate the game mechanics.
 ## We must break down the problem into smaller parts and build a CRUD (Create, Read, Update, Delete) application using an **agentic machine** design pattern in Rust. An agentic machine is essentially a system where multiple agents (or actors) communicate with each other to handle tasks asynchronously. This approach is similar to actor-based concurrency models like Akka in Scala or Elixir's OTP.
 ## Today cognitive labor may be automated. What is the new cognitive labor that gets created? Dont conflate knowledge worker with knowledge work. The knowledge work of today could probably be automated. Thats a different abstraction.
 ## Building UI Layer for Knowledge Work (CRUD Application) (end-to-end personal branding Agentic Machine Design Pattern Knowledge Worker)
