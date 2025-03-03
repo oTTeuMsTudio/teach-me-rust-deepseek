@@ -1,3 +1,5 @@
+# Assigning roles to managing agent, solutions architect and backend developer
+
 Creating a sea ship construction game in Rust involves integrating concepts from multiple domains: game design, software architecture, and backend development. Lets go through the process by breaking it into manageable steps, assigning roles to the managing agent, solutions architect, and backend developer, and providing code snippets where appropriate.
 
 ---
