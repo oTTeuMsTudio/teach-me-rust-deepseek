@@ -1,3 +1,4 @@
+# YouTube Video Generator using Rust
 Creating a YouTube video generator in Rust involves several components: text-to-speech (TTS), image generation, video stitching, and audio mixing. Lets get started. This example assumes you have basic Rust knowledge and FFmpeg installed.
 
 ### Step 1: Set Up Your Project
