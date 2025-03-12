@@ -118,4 +118,3 @@ Difference in moment of inertia: 0.0055 kg·m²
 
 The Rust program calculates the difference in moment of inertia between 26-inch and 28-inch tires based on the provided mass. You can copy and run the code in any Rust environment to perform the calculation. 
 
-If you have further questions or need additional features, feel free to ask!
