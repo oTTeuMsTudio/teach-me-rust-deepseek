@@ -1,4 +1,4 @@
-# rotational inertia of the tire, which depends on its radius (or diameter) 
+# Rotational inertia of the tire, which depends on its radius (or diameter) 
 To write a Rust program that calculates the difference in moment between 26-inch and 28-inch tires, we first need to define what "moment" means in this context. For simplicity, let's assume "moment" refers to the rotational inertia of the tire, which depends on its radius (or diameter). The rotational inertia $ I $ of a hoop (a simplified model of a tire) is given by:
 
 $$
