@@ -51,6 +51,13 @@ Every human and device with dozens of sleepless assistants
      - Historical: Event Store (Replayable, Traceable, Auditable, Event sources)
    - Agentic AI Services: Orchestrated | Stateful
      - Historical: Event Store
-     - Conversational: LLMs
+     - Conversational: LLMs (Stateless)
+    
+4. **Agents are orchestrated services**
+   Workflows:
+   - traceable
+   - auditable
+   - debuggable
+   - with point-in-ime recovery
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
