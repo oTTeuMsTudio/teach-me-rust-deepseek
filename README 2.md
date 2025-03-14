@@ -1,4 +1,4 @@
-# 1. The agentic opportunity and the move to a-tier architecture
+# 1. The Agentic Opportunity and the move to a-tier Architecture
 ## 1.1. AI Assistant
 A user app that understands natural language commans and uses a conversational AI interface to complete tasks on-demand.
 ## 1.2. AI Agent
