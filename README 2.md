@@ -31,7 +31,7 @@ Capacity to make meaning from your environment
 - autonomous
 > A big gap exists between current LLM-based assistnat and full-fledged AI agents, but this gap will close as we learn how to build, govern and trust agentic AI solutions.
 > -Gartner
-# 2. A blueprint for agentic services
+# 2. A Blueprint for Agentic Services
 ## A paradigm shift to AI-fueled app ecosystem
 ### AI agents and apps become part of a symbiotic existence
 > By 2028, 33% of enterprise software applications will include agentic AI, up from less than 1% in 2024.
@@ -39,6 +39,10 @@ Capacity to make meaning from your environment
 **App Ecosystem (SaaS Applications + Agentic AI Services)**: ->
 - Enhanced user experience: AI agents personalize interactions to increase satisfaction
 - Operational efficiency: AI agents automate routine tasks to allow humans to focus on strategic initiatives
-- Scalability: AI-driven SaaS adapt to business needs without proportional increases in cost 
+- Scalability: AI-driven SaaS adapt to business needs without proportional increases in cost
+
+**Agentic is the 5the wave of compute (100x trillions in users, 1,000,000 TPS)**
+Every human and device with dozens of sleepless assistants
+
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
