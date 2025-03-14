@@ -36,7 +36,7 @@ Capacity to make meaning from your environment
 ### AI agents and apps become part of a symbiotic existence
 > By 2028, 33% of enterprise software applications will include agentic AI, up from less than 1% in 2024.
 
-App Ecosystem (SaaS Applications + Agentic AI Services):
+**App Ecosystem (SaaS Applications + Agentic AI Services)**:
 - Enhanced user experience: AI agents personalize interactions to increase satisfaction
 - Operational efficiency: AI agents automate routine tasks to allow humans to focus on strategic initiatives
 - Scalability: AI-driven SaaS adapt to business needs without proportional increases in cost 
