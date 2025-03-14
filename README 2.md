@@ -32,6 +32,9 @@ Capacity to make meaning from your environment
 > A big gap exists between current LLM-based assistnat and full-fledged AI agents, but this gap will close as we learn how to build, govern and trust agentic AI solutions.
 > -Gartner
 # 2. A blueprint for agentic services
+## A paradigm shift to AI-fueled app ecosystem
+### AI agents and apps become part of a symbiotic existence
+> By 2028, 33% of enterprise software applications will include agentic AI, up from less than 1% in 2024.
 
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
