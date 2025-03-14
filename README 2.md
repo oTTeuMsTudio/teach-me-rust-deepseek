@@ -65,3 +65,37 @@ Every human and device with dozens of sleepless assistants
       - AI agents break comples workflows into smaller composable steps
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
+
+Here's a condensed summary of the key points from the webinar:
+
+1. Agentic AI systems are different from traditional CRUD applications, being conversation-centered rather than transaction-centered.
+
+2. There's growing interest in agentic AI, with search terms increasing 15,000% recently.
+
+3. Main challenges include:
+   - High latency compared to traditional databases
+   - Cost (10-10,000x more expensive per call than database operations)
+   - Managing conversational history and context
+   - Integrating with existing SAS systems
+
+4. AA (the company hosting the webinar) offers a platform with:
+   - Streaming endpoints and multimodal capabilities
+   - Connectors for various databases and LLMs
+   - Agent orchestration and workflow management
+   - In-memory context database
+   - Governance and lifecycle management tools
+
+5. They claim to offer efficiencies through:
+   - Non-blocking, asynchronous LLM adapters
+   - Shared compute for API and agentic services
+   - Multi-region support with automated replication
+
+6. The company aims to help customers go from concept to production in 8 weeks.
+
+7. For those just starting, they offer a proof-to-value program to create prototypes in 48 hours.
+
+8. Deployment options include cloud, virtual private cloud, and self-hosted solutions.
+
+9. Key considerations for implementation include latency management, cost optimization, and explainability of AI decisions. 
+
+The webinar emphasized that while there are challenges, they're working to provide solutions to make agentic AI more accessible and efficient for enterprises.
