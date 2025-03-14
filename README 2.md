@@ -2,7 +2,7 @@
 ## 1.1. AI Assistant
 A user app that understands natural language commans and uses a conversational AI interface to complete tasks on-demand.
 ## 1.2. AI Agent
-A system that can autonomously fulfull goals by interacting with other systems and agents.
+A system that can autonomously fulfill goals by interacting with other systems and agents.
 ## 1.3. AI Agency
 Capacity to make meaning from your environment
 ### Low Agency 
