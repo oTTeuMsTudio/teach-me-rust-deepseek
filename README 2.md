@@ -36,13 +36,21 @@ Capacity to make meaning from your environment
 ### AI agents and apps become part of a symbiotic existence
 > By 2028, 33% of enterprise software applications will include agentic AI, up from less than 1% in 2024.
 
-**App Ecosystem (SaaS Applications + Agentic AI Services)**: ->
+1. **App Ecosystem (SaaS Applications + Agentic AI Services)**: ->
 - Enhanced user experience: AI agents personalize interactions to increase satisfaction
 - Operational efficiency: AI agents automate routine tasks to allow humans to focus on strategic initiatives
 - Scalability: AI-driven SaaS adapt to business needs without proportional increases in cost
 
-**Agentic is the 5the wave of compute (100x trillions in users, 1,000,000 TPS)**.
+2. **Agentic is the 5the wave of compute (100x trillions in users, 1,000,000 TPS)**.
 Every human and device with dozens of sleepless assistants
 
+3. **Transactional apps -> Conversational agents**. A fundamental shift from request-response to contextual iterations.
+   - SaaS Applications: Stateless
+     - Transactional: Database (Immediate, Structured, Concurrent, Durable)
+   - Agentic Services: Orchestrated | Stateful
+     - Historical: Event Store (Replayable, Traceable, Auditable, Event sources)
+   - Agentic AI Services: Orchestrated | Stateful
+     - Historical: Event Store
+     - Conversational: LLMs
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
