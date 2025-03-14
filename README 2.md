@@ -29,7 +29,7 @@ Capacity to make meaning from your environment
    - proactive
    - goals
    - autonomous
-> A big gap exists between current LLM-based assistnat and full-fledged AI agents, but this gap will close as we learn how to build, govern and trust agentic AI solutions.
+> A big gap exists between current LLM-based assistant and full-fledged AI agents, but this gap will close as we learn how to build, govern and trust agentic AI solutions.
 > -Gartner
 # 2. A Blueprint for Agentic Services
 ## A paradigm shift to AI-fueled app ecosystem
@@ -54,10 +54,14 @@ Every human and device with dozens of sleepless assistants
      - Conversational: LLMs (Stateless)
     
 4. **Agents are orchestrated services**
-   Workflows:
-   - traceable
-   - auditable
-   - debuggable
-   - with point-in-ime recovery
+   - Workflows:
+      - traceable
+      - auditable
+      - debuggable
+      - with point-in-time recovery
+   - Agents are workflows
+      - rekuabke execution of AI tasks with visibility into request / response data, built-in retries, and error compensation
+   - Task chaining
+      - AI agents break comples workflows into smaller composable steps
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
