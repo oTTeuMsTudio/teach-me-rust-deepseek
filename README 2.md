@@ -41,7 +41,7 @@ Capacity to make meaning from your environment
 - Operational efficiency: AI agents automate routine tasks to allow humans to focus on strategic initiatives
 - Scalability: AI-driven SaaS adapt to business needs without proportional increases in cost
 
-**Agentic is the 5the wave of compute (100x trillions in users, 1,000,000 TPS)**
+**Agentic is the 5the wave of compute (100x trillions in users, 1,000,000 TPS)**.
 Every human and device with dozens of sleepless assistants
 
 # 3. Agentic stories and AI in practice
