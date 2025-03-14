@@ -30,6 +30,7 @@ Capacity to make meaning from your environment
 - goals
 - autonomous
 > A big gap exists between current LLM-based assistnat and full-fledged AI agents, but this gap will close as we learn how to build, govern and trust agentic AI solutions.
+> -Gartner
 # 2. A blueprint for agentic services
 
 # 3. Agentic stories and AI in practice
