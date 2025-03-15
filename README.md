@@ -97,14 +97,15 @@ Every human and device with dozens of sleepless assistants
       - trigger -> agent workflow: monitor, timeout, storage, policies, domain logic, plug-ins -> sequential, parallel, event-driven, state machine (rules: fave activities, budget, itinerary), human-in-the-loop (proposed itinerary, adjust dates, budget, plan) 
    - Task chaining
       - AI agents break comples workflows into smaller composable steps
-      - trigger -> agent workflow: sequence, choice of agent, validation -> sub-task agent 1, sub-task agent 2, sub-task agent 3  
+      - trigger -> agent workflow: sequence, choice of agent, validation -> sub-task agent 1, sub-task agent 2, sub-task agent 3
+
 **Agent types orchestrate levels of agency**. De-coupled, event-driven patterns and control loops.
-        - Retrieve - augment: agent that combine external knowledge with reasoning and action
-           - trigger -> agent workflow: knowledge retrieval, crawling fan-out, augment promt, reasoning -> repeat unti desired outcome -> output + action   
-        - Environment controllers: control environments in real-time robotics, edge, and automation
-           - streaming sensors -> agent workflow: perception, reasoning, action, feedback -> reapeat until goal achieved -> output + changed state
-        - Self learning: agents that improve themselves over time through self-reflection and evnironment adaption
-           - input query -> agent workflow: reasoning, action feedback, execution, learning, reasoning -> continuous iteration -> evolved agent
+   - Retrieve - augment: agent that combine external knowledge with reasoning and action
+      - trigger -> agent workflow: knowledge retrieval, crawling fan-out, augment promt, reasoning -> repeat unti desired outcome -> output + action   
+   - Environment controllers: control environments in real-time robotics, edge, and automation
+      - streaming sensors -> agent workflow: perception, reasoning, action, feedback -> reapeat until goal achieved -> output + changed state
+   - Self learning: agents that improve themselves over time through self-reflection and evnironment adaption
+      - input query -> agent workflow: reasoning, action feedback, execution, learning, reasoning -> continuous iteration -> evolved agent
  **Conversations are stateful**. Context and conversation database now a part of the agentic stack
       - each iteration adds context
       - journaled sequences for context and recovery
