@@ -128,8 +128,8 @@ Every human and device with dozens of sleepless assistants
    - Operational efficiency -> AI agents automate routine tasks to allow humans to focus on strategic initiatives
    - Scalability -> AI-driven SaaS adapt to business needs without proportional increases in cost
 
-Avoid the workflow island - orchestration without streaming, context database, or custom API endpoints.
-Avoid the framework trap - dev tools with locking, concurrency, & memory not suited for 24/7 ops
+> Avoid the workflow island - orchestration without streaming, context database, or custom API endpoints.
+> Avoid the framework trap - dev tools with locking, concurrency, & memory not suited for 24/7 ops
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
 
