@@ -111,7 +111,25 @@ Every human and device with dozens of sleepless assistants
       - journaled sequences for context and recovery
       - in-memory, durable journals for speed + resilience
 
-**Agentic AI augmentation cycle**
+**Agentic AI augmentation cycle**. Agents slow down on each iteration as context grows
+- Agents start fast: small prompts, small conversations generate quicker responses
+- Agent iterations grow slower: Conversations and prompts grow, eventually hitting LLM token cap
+
+**Augment at streaming speeds**. Agents augment from a continuous stream of inputs without overloading themselves or their LLMs
+
+**From n-tier to a-tier architecture**. Humas+devices augmented with dozens of agent assistants that never sleep.
+- Web and API Tier -> databe, OLAP
+- Agentic Tier (Agent lifecycle, AI orchestration, context augmentation) -> LLMs (conversational, streaming response, poor latency, not concurrent), vector db (memory-hungry, slow encoding algos), event db
+
+**Agentic scale requires efficiency**. More txs: each slover, less predictable and more costly
+**Accelerate delivery of agentic AI apps**
+- SaaS Applications + Agentic AI Services
+   - Enhanced user experience -> AI agents personalize interactions to increase satisfaction
+   - Operational efficiency -> AI agents automate routine tasks to allow humans to focus on strategic initiatives
+   - Scalability -> AI-driven SaaS adapt to business needs without proportional increases in cost
+
+Avoid the workflow island - orchestration without streaming, context database, or custom API endpoints.
+Avoid the framework trap - dev tools with locking, concurrency, & memory not suited for 24/7 ops
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
 
