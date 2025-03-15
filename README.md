@@ -105,7 +105,11 @@ Every human and device with dozens of sleepless assistants
            - streaming sensors -> agent workflow: perception, reasoning, action, feedback -> reapeat until goal achieved -> output + changed state
         - Self learning: agents that improve themselves over time through self-reflection and evnironment adaption
            - input query -> agent workflow: reasoning, action feedback, execution, learning, reasoning -> continuous iteration -> evolved agent
-   6. **Conversations are stateful**
+   6. **Conversations are stateful**. Context and conversation database now a part of the agentic stack
+      - each iteration adds context
+      - journaled sequences for context and recovery
+      - in-memory, durable journals for speed + resilience
+        
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
 
