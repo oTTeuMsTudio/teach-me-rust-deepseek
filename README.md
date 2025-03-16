@@ -130,6 +130,54 @@ Every human and device with dozens of sleepless assistants
 
 - Avoid the workflow island - orchestration without streaming, context database, or custom API endpoints.
 - Avoid the framework trap - dev tools with locking, concurrency, & memory not suited for 24/7 ops
+
+**Company with Agentic Advantage**
+- Agentic, AI, apps & data
+- Hardened runtime
+- Simple, expressive SDK
+- Multi-region
+- Automated ops
+
+Streaming endpoints
+- Shared compute: agentic co-execution with API services
+- HTTP and gRPC custom API endpoints
+- Custom protocols, media types, and edge deployments
+- Real-time streaming ingest, benchmarked to over 1TB
+
+Context database
+- Agentic sessions with infinite context
+- Context snapshot pruning to avoid LLM token caps
+- In-memory context sharding, load balancing, and traffic routing
+- Multi-region context replication
+- Replication filters for region-pinning user context data
+- Embedded context persistence with Postgres event store
+
+Agent connectivity & adapters
+- Non-blocking, streaming LLM inference adapters with back pressure
+- Multi-LLM selection
+- LLm adapters & 100s of ML algos
+- Agent-to-agent brokerless messaging
+- 100s of 3rd party integrations
+
+Agent orchestration
+- Event-driven runtime benchmarked to 10M TPS
+- SDK with AI workflow component
+- Serial, parallel, state machine, & human-in-the-loop flows
+- Sub-tasking agents and multi-agent coordination
+
+Agent lifecycle management
+- Agent versioning
+- Agent replay
+- Event, workflow, and agent debugger
+- No downtime agent upgrades
+
+**Concept-to-production**
+1. Choose your agentic architecture -> RAG, cooperative multi-agent, environment controller, or self-learning
+2. Select the right AI model -> Promt-based agents (GPT-4, Clause, Gemini, Mistra, Llama 2), Embedding-based search agents (OpenAI Ada, Cohere, Google Vertex AI), Fine-tuned industry models (Falcon, Mixtral)
+3. Stand up agentic platform regions -> Cloud (Serverless), Edge, Private (BYOC)
+4. Stand up AI inferencing -> Cloud AI (OpenAI, AWS Bedrock, Azure AI, Google Vertex AI), Self-Hosted AI (Ollama, vLLM, TGI), On-device AI (GTP4All, LM Studio)
+5. Build, test, debug and optimize -> Build agents and agentic services offline with SDK, add human-in-the-loop features for overshight, run real-world performance, functional, and penetration simulations
+6. Deploy and observe -> Setup API rate and cost limits to prevent abuse, Record, track, and export performance or traces, Monitor AI behavior for hallucinations or errors
 # 3. Agentic stories and AI in practice
 ## Real-time video augmentation, model-driven personalization, Google Earth AI inference 
 
