@@ -5,38 +5,38 @@ To calculate the battery power (in watts) required to match or exceed human forc
 
 ### **Key Concepts**
 1. **Force**:
-   - Force is calculated using Newton's second law: $ F = m \cdot g $, where:
-     - $ F $: Force in newtons (N)
-     - $ m $: Mass in kilograms (kg)
-     - $ g $: Acceleration due to gravity ($ g \approx 9.81 \, \text{m/s}^2 $)
+   - Force is calculated using Newton's second law: F = m \cdot g, where:
+     - F: Force in newtons (N)
+     - m: Mass in kilograms (kg)
+     - g: Acceleration due to gravity (g \approx 9.81 \, \text{m/s}^2)
 
 2. **Work**:
-   - Work is the product of force and distance: $ W = F \cdot d $, where:
-     - $ W $: Work in joules (J)
-     - $ d $: Distance in meters (m)
+   - Work is the product of force and distance: W = F \cdot d, where:
+     - W: Work in joules (J)
+     - d: Distance in meters (m)
 
 3. **Power**:
-   - Power is the rate at which work is done: $ P = \frac{W}{t} $, where:
-     - $ P $: Power in watts (W)
-     - $ t $: Time in seconds (s)
+   - Power is the rate at which work is done: P = \frac{W}{t}, where:
+     - P: Power in watts (W)
+     - t: Time in seconds (s)
 
 4. **Battery Power**:
    - To determine the battery power needed, we must know:
-     - The mass ($ m $) the user provides.
-     - The distance ($ d $) over which the force is applied.
-     - The time ($ t $) over which the work is performed.
+     - The mass (m) the user provides.
+     - The distance (d) over which the force is applied.
+     - The time (t) over which the work is performed.
 
 ---
 
 ### **Program Design**
 The program will:
 1. Prompt the user for input:
-   - Mass ($ m $) in kilograms.
-   - Distance ($ d $) in meters.
-   - Time ($ t $) in seconds.
-2. Calculate the force ($ F $) using $ F = m \cdot g $.
-3. Calculate the work ($ W $) using $ W = F \cdot d $.
-4. Calculate the power ($ P $) using $ P = \frac{W}{t} $.
+   - Mass (m) in kilograms.
+   - Distance (d) in meters.
+   - Time (t) in seconds.
+2. Calculate the force (F) using F = m \cdot g.
+3. Calculate the work (W) using W = F \cdot d.
+4. Calculate the power (P) using P = \frac{W}{t}.
 5. Display the required battery power in watts.
 
 ---
@@ -101,9 +101,9 @@ fn read_input() -> f64 {
    - The `read_input` function reads a line of input from the user, trims whitespace, and parses it into a `f64`. If the input is invalid, the program will panic with an error message.
 
 3. **Calculations**:
-   - Force is calculated using $ F = m \cdot g $.
-   - Work is calculated using $ W = F \cdot d $.
-   - Power is calculated using $ P = \frac{W}{t} $.
+   - Force is calculated using F = m \cdot g.
+   - Work is calculated using W = F \cdot d.
+   - Power is calculated using P = \frac{W}{t}.
 
 4. **Error Handling**:
    - The program checks if the time is zero to avoid division by zero, which would cause a runtime error.
@@ -134,16 +134,16 @@ To lift 50 kg over 2 meters in 10 seconds, you need a battery with 98.10 watts o
 
 ### **How It Works**
 1. The user inputs:
-   - Mass ($ m = 50 \, \text{kg} $)
-   - Distance ($ d = 2 \, \text{m} $)
-   - Time ($ t = 10 \, \text{s} $)
+   - Mass (m = 50 \, \text{kg})
+   - Distance (d = 2 \, \text{m})
+   - Time (t = 10 \, \text{s})
 
 2. Calculations:
-   - Force: $ F = 50 \cdot 9.81 = 490.5 \, \text{N} $
-   - Work: $ W = 490.5 \cdot 2 = 981 \, \text{J} $
-   - Power: $ P = \frac{981}{10} = 98.1 \, \text{W} $
+   - Force: F = 50 \cdot 9.81 = 490.5 \, \text{N}
+   - Work: W = 490.5 \cdot 2 = 981 \, \text{J}
+   - Power: P = \frac{981}{10} = 98.1 \, \text{W}
 
-3. The program outputs the required power: $ 98.10 \, \text{W} $.
+3. The program outputs the required power: 98.10 \, \text{W}.
 
 ---
 
