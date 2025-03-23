@@ -1,5 +1,5 @@
-# building a GPU-accelerated image viewer
-Building a GPU-accelerated image viewer using **Iced** and **wgpu** in Rust is an excellent way to explore modern GUI development and GPU programming. Lets go through the process, breaking it into manageable parts. By the end of this explanation, you will have a basic understanding of how to integrate these libraries to create a functional image viewer.
+# Building a GPU-accelerated image viewer
+Building a GPU-accelerated image viewer using **Iced** and **wgpu** in Rust is an excellent way to explore modern GUI development and GPU programming. Lets go through the process, breaking it into manageable parts. We are learning a basic of how to integrate these libraries to create a functional image viewer.
 
 ---
 
