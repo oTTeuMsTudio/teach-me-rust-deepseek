@@ -1,3 +1,4 @@
+# Deploy on Leapcell
 Deploying a Rust application on **Leapcell** involves several steps, including preparing your Rust application, building it for deployment, and configuring Leapcell to host and run your app. Below is a step-by-step guide to help you through the process.
 
 ---
