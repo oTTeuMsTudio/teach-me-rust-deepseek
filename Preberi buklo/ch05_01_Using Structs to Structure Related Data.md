@@ -1,3 +1,5 @@
+# Using Structs to Structure Related Data
+
 In Rust, **structs** (short for "structures") are used to group related data together. They allow you to define custom data types by combining multiple fields, each with a name and type. Structs are similar to tuples, but they provide more clarity and flexibility because each field is explicitly named.
 
 This guide will walk you through the basics of using structs in Rust, including how to define them, create instances, access fields, and use methods.
