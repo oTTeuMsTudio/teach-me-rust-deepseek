@@ -1,4 +1,5 @@
-In Rust, **modules** are a way to organize code and control the visibility (privacy) of items such as functions, structs, enums, and constants. Modules help you group related functionality together and manage access to that functionality. This is especially important in larger projects where maintaining clear boundaries between different parts of the codebase is crucial.
+# In Rust, **modules** are a way to organize code and control the visibility (privacy) of items such as functions, structs, enums, and constants. 
+Modules help you group related functionality together and manage access to that functionality. This is especially important in larger projects where maintaining clear boundaries between different parts of the codebase is crucial.
 
 Let’s break down how to define modules and control their scope and privacy step by step.
 
