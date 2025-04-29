@@ -1,0 +1,163 @@
+# Hash maps
+In Rust, the most common way to store keys with associated values (i.e., a key-value map) is by using the `HashMap<K, V>` type from the standard library. A `HashMap` maps keys of type `K` to values of type `V`, similar to dictionaries in Python or objects in JavaScript.
+
+---
+
+## 🧠 What is a HashMap?
+
+A `HashMap` allows you to:
+- Insert key-value pairs.
+- Access values by their key.
+- Update or remove values based on keys.
+- Check if a key exists.
+
+---
+
+## 🔧 Using `HashMap` in Rust
+
+### 1. **Importing HashMap**
+
+First, you need to import it:
+
+```rust
+use std::collections::HashMap;
+```
+
+---
+
+### 2. **Creating a New HashMap**
+
+```rust
+let mut scores = HashMap::new();
+```
+
+Now we can insert values.
+
+---
+
+### 3. **Inserting Values**
+
+Use `.insert(key, value)` to add entries.
+
+```rust
+scores.insert(String::from("Blue"), 10);
+scores.insert(String::from("Yellow"), 50);
+```
+
+Make sure the types of your keys and values are consistent.
+
+> ⚠️ Note: The key type must implement the `Eq` and `Hash` traits. Many built-in types like `String`, `&str`, integers, booleans, etc., do this automatically.
+
+---
+
+### 4. **Accessing Values**
+
+Use `.get(&key)` to retrieve a value:
+
+```rust
+let blue_score = scores.get("Blue");
+match blue_score {
+    Some(score) => println!("Blue team scored {} points", score),
+    None => println!("Blue team not found"),
+}
+```
+
+Or use short-hand:
+
+```rust
+println!("{:?}", scores.get("Blue")); // Outputs: Some(10)
+```
+
+---
+
+### 5. **Updating Values**
+
+There are several common patterns:
+
+#### 🔁 Overwriting a Value
+
+```rust
+scores.insert("Blue".to_string(), 25); // Now Blue has 25
+```
+
+#### ➕ Adding Only If Absent
+
+```rust
+scores.entry("Green".to_string()).or_insert(30);
+```
+
+This inserts only if `"Green"` doesn't exist yet.
+
+#### 🔄 Modify Based on Current Value
+
+```rust
+let count = scores.entry("Blue".to_string()).or_insert(0);
+*count += 1; // Increment Blue's score
+```
+
+---
+
+### 6. **Iterating Over HashMap**
+
+You can iterate over key-value pairs:
+
+```rust
+for (key, value) in &scores {
+    println!("{}: {}", key, value);
+}
+```
+
+---
+
+### ✅ Example: Full Program
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut scores = HashMap::new();
+
+    scores.insert("Blue".to_string(), 10);
+    scores.insert("Yellow".to_string(), 50);
+
+    // Access value
+    if let Some(score) = scores.get("Blue") {
+        println!("Blue score: {}", score);
+    }
+
+    // Update entry
+    *scores.entry("Blue".to_string()).or_insert(0) += 1;
+
+    // Print all
+    for (team, &score) in &scores {
+        println!("{}: {}", team, score);
+    }
+}
+```
+
+**Output:**
+```
+Blue score: 10
+Blue: 11
+Yellow: 50
+```
+
+---
+
+## 📌 Notes
+
+- Keys must be of a type that implements `Eq` and `Hash`.
+- Be aware of ownership rules when inserting or accessing values:
+  - `.insert()` takes ownership of both key and value unless you're using references with proper lifetimes.
+- Use `.clone()` if needed, but avoid unnecessary cloning for performance.
+
+---
+
+## 🛠️ Advanced Usage
+
+- You can use `hashbrown::HashMap` (faster hashmap implementation) via the `hashbrown` crate.
+- For ordered maps (e.g., keep insertion order), use the `indexmap` crate.
+
+---
+
+Would you like an example using integers as keys? Or something more complex like storing vectors in a hashmap?
