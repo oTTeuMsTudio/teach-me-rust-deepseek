@@ -160,4 +160,178 @@ Yellow: 50
 
 ---
 
-Would you like an example using integers as keys? Or something more complex like storing vectors in a hashmap?
+# Would you like an example using integers as keys? Or something more complex like storing vectors in a hashmap?
+
+Let's go a bit deeper and take a look at some **more complex examples** of using `HashMap` in Rust, including:
+
+1. Storing different types (like `i32`, `&str`, `Vec<T>`)
+2. Using `HashMap` with `match` and `entry`
+3. Grouping data by key (e.g., summing values or collecting lists)
+
+---
+
+## 🔢 Example 1: HashMap with Integer Keys
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut ages = HashMap::new();
+
+    // Insert integer keys and values
+    ages.insert(101, "Alice");
+    ages.insert(102, "Bob");
+
+    // Access value
+    if let Some(name) = ages.get(&101) {
+        println!("ID 101 is {}", name);
+    }
+
+    // Iterate
+    for (&id, &name) in &ages {
+        println!("ID {}: {}", id, name);
+    }
+}
+```
+
+### ✅ Output:
+```
+ID 101 is Alice
+ID 101: Alice
+ID 102: Bob
+```
+
+---
+
+## 📦 Example 2: HashMap with `Vec<T>` as Values
+
+Let’s say we want to group students into teams:
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let students = vec![
+        ("Alice", "Math"),
+        ("Bob", "Science"),
+        ("Charlie", "Math"),
+        ("David", "History"),
+        ("Eve", "Science"),
+    ];
+
+    let mut groups: HashMap<&str, Vec<&str>> = HashMap::new();
+
+    for (student, group) in students {
+        groups.entry(group).or_insert_with(Vec::new).push(student);
+    }
+
+    for (group, members) in &groups {
+        println!("{}: {:?}", group, members);
+    }
+}
+```
+
+### ✅ Output:
+```
+Math: ["Alice", "Charlie"]
+Science: ["Bob", "Eve"]
+History: ["David"]
+```
+
+---
+
+## 🧮 Example 3: Summing Values by Key
+
+Suppose you're counting fruits collected over multiple days.
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let fruits = vec![
+        ("apple", 3),
+        ("banana", 2),
+        ("apple", 2),
+        ("orange", 5),
+        ("banana", 4),
+    ];
+
+    let mut basket = HashMap::new();
+
+    for (fruit, count) in fruits {
+        let total = basket.entry(fruit).or_insert(0);
+        *total += count;
+    }
+
+    for (fruit, total) in &basket {
+        println!("Total {}s: {}", fruit, total);
+    }
+}
+```
+
+### ✅ Output:
+```
+Total apples: 5
+Total bananas: 6
+Total oranges: 5
+```
+
+---
+
+## 📚 Bonus: Nested HashMap (Map inside Map)
+
+You can have nested structures like `HashMap<String, HashMap<String, i32>>`.
+
+This is useful for hierarchical grouping, like team scores per round:
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let results = vec![
+        ("Blue", "Round1", 10),
+        ("Blue", "Round2", 15),
+        ("Red", "Round1", 8),
+        ("Red", "Round2", 12),
+    ];
+
+    let mut team_scores: HashMap<_, HashMap<_, _>> = HashMap::new();
+
+    for (team, round, score) in results {
+        team_scores
+            .entry(team)
+            .or_insert_with(HashMap::new)
+            .insert(round, score);
+    }
+
+    for (team, rounds) in &team_scores {
+        println!("Team {}", team);
+        for (round, score) in rounds {
+            println!("  {}: {}", round, score);
+        }
+    }
+}
+```
+
+### ✅ Output:
+```
+Team Blue
+  Round1: 10
+  Round2: 15
+Team Red
+  Round1: 8
+  Round2: 12
+```
+
+---
+
+## 💡 Recap Tips
+
+- Use `.entry().or_insert()` to smartly insert or update.
+- You can store any type in the values — even `Vec<T>`, `HashMap<K,V>`, or custom structs.
+- Be mindful of ownership when inserting references or strings.
+- For performance-critical contexts, consider using crates like `hashbrown` or `ahash`.
+
+---
+
+Would you like to see how to use a custom struct as a key in a `HashMap`? Or maybe serialize/deserialize a hashmap using `serde`?
