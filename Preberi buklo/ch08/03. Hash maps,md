@@ -334,4 +334,164 @@ Team Red
 
 ---
 
-Would you like to see how to use a custom struct as a key in a `HashMap`? Or maybe serialize/deserialize a hashmap using `serde`?
+# Would you like to see how to use a custom struct as a key in a `HashMap`? Or maybe serialize/deserialize a hashmap using `serde`?
+
+Awesome choice! Let's explore two more advanced topics with `HashMap` in Rust:
+
+1. ✅ **Using a custom struct as a key** in a hashmap  
+2. ✅ **Serializing and deserializing a hashmap** using `serde`
+
+---
+
+## 🧱 1. Using a Custom Struct as a Key in `HashMap`
+
+In Rust, to use a custom type (like a struct) as a key in a `HashMap`, it must implement the following traits:
+
+- `Eq` and `PartialEq` – for equality comparisons
+- `Hash` – for hashing
+
+### 🔧 Example: Using a `Point` Struct as a Key
+
+```rust
+use std::collections::HashMap;
+use std::hash::{Hash, Hasher};
+use std::collections::hash_map::DefaultHasher;
+
+#[derive(Debug, Clone, Copy)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+// Implement Eq and PartialEq
+impl Eq for Point {}
+
+impl PartialEq for Point {
+    fn eq(&self, other: &Self) -> bool {
+        self.x == other.x && self.y == other.y
+    }
+}
+
+// Implement Hash
+impl Hash for Point {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.x.hash(state);
+        self.y.hash(state);
+    }
+}
+
+fn main() {
+    let mut map = HashMap::new();
+
+    let p1 = Point { x: 0, y: 1 };
+    let p2 = Point { x: 2, y: 3 };
+
+    map.insert(p1, "origin");
+    map.insert(p2, "edge");
+
+    // Access values
+    println!("{:?}", map.get(&p1)); // Some("origin")
+    println!("{:?}", map.get(&p2)); // Some("edge")
+
+    // Iterate
+    for (point, label) in &map {
+        println!("Point ({}, {}): {}", point.x, point.y, label);
+    }
+}
+```
+
+### ✅ Output:
+```
+Some("origin")
+Some("edge")
+Point (0, 1): origin
+Point (2, 3): edge
+```
+
+> 📌 Note: You can also derive these traits automatically if your struct is simple enough.
+
+### 💡 Shorthand Derive Version
+
+If you trust the compiler and your fields are all types that already implement `Hash`, `Eq`, etc., just do:
+
+```rust
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+```
+
+This works perfectly and saves boilerplate!
+
+---
+
+## 💾 2. Serialize/Deserialize a HashMap Using `serde`
+
+To serialize (`HashMap`) into formats like JSON or YAML, we use the [`serde`](https://serde.rs/) crate.
+
+### 🛠️ Step 1: Add Dependencies
+
+Add this to your `Cargo.toml`:
+
+```toml
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+```
+
+### 📦 Step 2: Use `serde` with HashMap
+
+Here's how to save/load a `HashMap<Point, String>` to/from JSON:
+
+```rust
+use std::collections::HashMap;
+use serde::{Serialize, Deserialize};
+
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn main() {
+    // Create a hashmap with Point keys
+    let mut map = HashMap::new();
+    map.insert(Point { x: 0, y: 1 }, "start".to_string());
+    map.insert(Point { x: 2, y: 3 }, "finish".to_string());
+
+    // Serialize to JSON
+    let json = serde_json::to_string(&map).unwrap();
+    println!("Serialized: {}", json);
+
+    // Deserialize from JSON
+    let deserialized: HashMap<Point, String> = serde_json::from_str(&json).unwrap();
+
+    // Print restored data
+    for (point, label) in &deserialized {
+        println!("Point ({}, {}): {}", point.x, point.y, label);
+    }
+
+    assert_eq!(map.len(), deserialized.len());
+}
+```
+
+### 💡 Notes:
+- This example uses JSON, but `serde` supports many formats (YAML via `serde_yaml`, TOML, etc.)
+- For non-primitive keys like `Point`, make sure they're also `Serialize + Deserialize`.
+
+---
+
+## 🎯 Summary
+
+| Feature                        | Description |
+|-------------------------------|-------------|
+| `Eq + PartialEq`              | Required for checking if keys are equal |
+| `Hash`                        | Needed for generating hash values |
+| `serde` support               | Enable easy serialization/deserialization |
+| Nested HashMaps               | Great for grouping hierarchical data |
+| `.entry().or_insert()`        | Preferred way to update entries conditionally |
+
+---
+
+# Would you like an exercise to practice using `HashMap`? Or maybe build a small project idea (like a contact list or inventory system)?
