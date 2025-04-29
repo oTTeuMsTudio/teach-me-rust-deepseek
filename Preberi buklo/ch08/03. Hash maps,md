@@ -495,3 +495,171 @@ fn main() {
 ---
 
 # Would you like an exercise to practice using `HashMap`? Or maybe build a small project idea (like a contact list or inventory system)?
+
+Perfect! Let's do a **hands-on practice** exercise to solidify your understanding of `HashMap` in Rust.
+
+---
+
+## 🧠 Exercise: Build a Simple Contact Book
+
+### 📌 Objective:
+Create a command-line contact book that allows the user to:
+
+1. **Add** a contact (name → phone number)
+2. **Search** for a contact by name
+3. **List** all contacts
+4. (Optional) **Remove** a contact
+
+You'll use a `HashMap<String, String>` to store the data.
+
+---
+
+## ✅ Features You Should Implement
+
+- Use a loop so the user can perform multiple actions.
+- Print a menu of options.
+- Handle adding, searching, listing, and optionally removing entries.
+
+---
+
+## 🛠️ Starter Code Template
+
+```rust
+use std::collections::HashMap;
+use std::io;
+
+fn main() {
+    let mut contacts = HashMap::new();
+
+    loop {
+        println!("\n--- Contact Book ---");
+        println!("1. Add Contact");
+        println!("2. Search Contact");
+        println!("3. List All Contacts");
+        println!("4. Remove Contact (optional)");
+        println!("5. Exit");
+        println!("Enter your choice:");
+
+        let mut choice = String::new();
+        io::stdin().read_line(&mut choice).expect("Failed to read input");
+
+        match choice.trim() {
+            "1" => add_contact(&mut contacts),
+            "2" => search_contact(&contacts),
+            "3" => list_contacts(&contacts),
+            "4" => remove_contact(&mut contacts),
+            "5" => {
+                println!("Exiting...");
+                break;
+            }
+            _ => println!("Invalid choice. Please try again."),
+        }
+    }
+}
+
+// 1. Add Contact
+fn add_contact(contacts: &mut HashMap<String, String>) {
+    let mut name = String::new();
+    let mut number = String::new();
+
+    println!("Enter name:");
+    io::stdin().read_line(&mut name).expect("Failed to read name");
+
+    println!("Enter phone number:");
+    io::stdin().read_line(&mut number).expect("Failed to read number");
+
+    contacts.insert(name.trim().to_string(), number.trim().to_string());
+    println!("Contact added!");
+}
+
+// 2. Search Contact
+fn search_contact(contacts: &HashMap<String, String>) {
+    let mut name = String::new();
+    println!("Enter name to search:");
+    io::stdin().read_line(&mut name).expect("Failed to read name");
+
+    let name = name.trim();
+    match contacts.get(name) {
+        Some(number) => println!("Phone number for {}: {}", name, number),
+        None => println!("No contact found with name: {}", name),
+    }
+}
+
+// 3. List Contacts
+fn list_contacts(contacts: &HashMap<String, String>) {
+    if contacts.is_empty() {
+        println!("No contacts available.");
+    } else {
+        println!("All Contacts:");
+        for (name, number) in contacts {
+            println!("{}: {}", name, number);
+        }
+    }
+}
+
+// 4. Remove Contact (optional)
+fn remove_contact(contacts: &mut HashMap<String, String>) {
+    let mut name = String::new();
+    println!("Enter name to remove:");
+    io::stdin().read_line(&mut name).expect("Failed to read name");
+
+    let name = name.trim();
+    if contacts.remove(name).is_some() {
+        println!("Contact '{}' removed.", name);
+    } else {
+        println!("No contact found with name '{}'", name);
+    }
+}
+```
+
+---
+
+## 💡 Tips
+
+- Use `.trim()` to avoid leading/trailing whitespace when storing or searching names.
+- Use `HashMap::remove()` to delete a key-value pair.
+- Think about how to make this persistent (e.g., save/load from a file using `serde_json`) — bonus challenge!
+
+---
+
+## 🚀 Sample Run
+
+```
+--- Contact Book ---
+1. Add Contact
+2. Search Contact
+3. List All Contacts
+4. Remove Contact (optional)
+5. Exit
+Enter your choice:
+1
+Enter name:
+Alice
+Enter phone number:
+555-0123
+Contact added!
+
+--- Contact Book ---
+1. Add Contact
+2. Search Contact
+3. List All Contacts
+4. Remove Contact (optional)
+5. Exit
+Enter your choice:
+3
+All Contacts:
+Alice: 555-0123
+```
+
+---
+
+## 📌 Optional Enhancements (Challenge)
+
+1. Save contacts to a JSON file on exit and load them at startup.
+2. Allow editing an existing contact’s number.
+3. Provide fuzzy search (e.g., partial match).
+4. Use colored output with the `colored` crate.
+
+---
+
+Would you like me to walk you through one of those enhancements? Like saving/loading the contact book to/from a file?
