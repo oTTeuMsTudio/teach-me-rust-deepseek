@@ -1,4 +1,4 @@
-Awesome! Let's take your **To-Do App** to the next level by:
+Let's take your **To-Do App** to the next level by:
 
 1. ✅ Adding **User Authentication**
 2. 🚀 Deploying it to **production using Vercel + Cloudflare Workers**
