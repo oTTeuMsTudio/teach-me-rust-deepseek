@@ -1,4 +1,4 @@
-Great! I'll help you generate:
+Generate:
 
 1. 📁 A **complete GitHub-ready repo structure**
 2. 🐳 A `Dockerfile` for easy self-hosting
