@@ -1,4 +1,4 @@
-Great! Let's build a **Full Stack To-Do App using Leptos + Axum + PostgreSQL**.
+Let's build a **Full Stack To-Do App using Leptos + Axum + PostgreSQL**.
 
 This app will:
 - Display a list of to-do items
