@@ -1,4 +1,4 @@
-Sure! Let's walk through **learning Full Stack Web Development using Leptos** — a modern, reactive Rust framework for building web applications. We'll start from the basics and work our way up to a full-stack app with backend and frontend in Rust.
+Let's walk through **learning Full Stack Web Development using Leptos** — a modern, reactive Rust framework for building web applications. We'll start from the basics and work our way up to a full-stack app with backend and frontend in Rust.
 
 ---
 
