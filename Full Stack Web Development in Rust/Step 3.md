@@ -76,9 +76,7 @@ git push -u origin main
 
 ---
 
-## ✅ Done!
-
-You now have a working GitHub repo at:
+## ✅ GitHub repo working at:
 
 👉 `https://github.com/<your-username>/leptos-todo-app`
 
