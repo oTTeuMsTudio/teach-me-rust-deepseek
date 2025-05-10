@@ -4,7 +4,7 @@
 
 ---
 
-# ☁️ Deploy Now Full-Stack Rust App (with Auth & DB)
+# ☁️ Deploy Full-Stack Rust App (with Auth & DB)
 
 We’ll use:
 
