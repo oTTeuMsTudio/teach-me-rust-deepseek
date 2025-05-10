@@ -311,7 +311,7 @@ Now should see a working todo list that:
 
 ---
 
-## 🎉 Just Built a Full-Stack Rust App!
+## 🎉 Full-Stack Rust App now working:
 
 ✅ Used Leptos for interactive UI  
 ✅ Used Axum as backend  
