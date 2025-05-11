@@ -7,7 +7,7 @@ We’re aiming to build:
 - A **multiplayer experience**, likely with WebSockets
 - And possibly a **backend** (also in Rust) handling game state synchronization
 
-Let`s go through process step-by-step.
+Let’s go through process step-by-step.
 
 ---
 
@@ -64,7 +64,7 @@ Then run it:
 trunk serve
 ```
 
-You’ll see a basic counter app in your browser at `http://localhost:8080`.
+We’ll see a basic counter app in our browser at `http://localhost:8080`.
 
 ---
 
@@ -99,7 +99,7 @@ cp pkg/fyrox_web_bg.wasm ../my-game-ui/assets/
 cp pkg/fyrox_web.js ../my-game-ui/assets/
 ```
 
-In your `index.html`:
+In our `index.html`:
 
 ```html
 <script type="module">
@@ -110,7 +110,7 @@ In your `index.html`:
 <canvas id="game-canvas"></canvas>
 ```
 
-You can now control the canvas from JavaScript/Rust interop.
+We can now control the canvas from JavaScript/Rust interop.
 
 💡 For full integration, use `wasm-bindgen` to call Rust functions from Leptos components.
 
