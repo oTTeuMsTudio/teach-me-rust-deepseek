@@ -1,4 +1,4 @@
-# A complete starter template for your Full-Stack 3D Multiplayer Game in Rust, using:
+# A complete starter template for Full-Stack 3D Multiplayer Game in Rust, using:
 
 - 🦀 **Rust (frontend + backend)**
 - 🌐 **Leptos** for the frontend UI
