@@ -7,7 +7,7 @@ We’re aiming to build:
 - A **multiplayer experience**, likely with WebSockets
 - And possibly a **backend** (also in Rust) handling game state synchronization
 
-This guide will walk you through the process step-by-step.
+Lets go through process step-by-step.
 
 ---
 
