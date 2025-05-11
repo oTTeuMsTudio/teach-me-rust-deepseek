@@ -1,4 +1,4 @@
-# Full-stack web application with a 3D multiplayer game using Rust for both frontend and backend 
+# Full-stack web application with a 3D multiplayer game using Rust
 
 We’re aiming to build:
 
