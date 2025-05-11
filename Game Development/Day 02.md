@@ -1,7 +1,5 @@
 # Generate a downloadable ZIP file or set up a GitHub template repository
 
-Since I can't generate actual files directly here, I’ll provide you with:
-
 ---
 
 ## ✅ Option 1: GitHub Template Repository
