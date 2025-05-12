@@ -1,284 +1,180 @@
-# Start game development in Rust using `fyrox` engine
+Sure! Let's learn **Fyrox.rs** in a simple and easy way. 🎮
 
 ---
 
-## 🧱 What is Fyrox?
+## 🔍 What is Fyrox?
 
-Fyrox (formerly called `rg3d`) is a powerful, open-source 3D game engine written in Rust. It features:
+**Fyrox** (formerly called `rg3d`) is a **3D game engine written in Rust**, designed to be powerful, safe, and fast — all the things Rust does well.
 
-- Scene graph with physics integration
-- PBR rendering pipeline
-- Animation system
-- UI framework (also written in Rust)
-- Asset loading (glTF, FBX, textures, audio, etc.)
+It’s great for making 2D/3D games with modern features like:
+
+- Physics
+- Animation
+- Audio
+- Scripting
+- Scene editor (visual UI)
 - Cross-platform support (Windows, macOS, Linux)
 
-It's designed for flexibility and performance, making it a great choice for indie developers working in Rust.
+---
+
+## 🧱 Basic Concepts of Fyrox
+
+Let’s break it down into **simple concepts** before diving into code.
+
+### 1. **Engine**
+The core of Fyrox. It handles rendering, physics, audio, etc.
+
+### 2. **Scene**
+A scene is like your game world — it contains everything: characters, lights, cameras, terrain, etc.
+
+### 3. **Node**
+Everything in a scene is a node. A node can be:
+- A camera
+- A light
+- A mesh (like a cube or character)
+- A UI element
+- Or even a custom script!
+
+### 4. **Handle<T>**
+In Fyrox, you don’t use normal references (`&`), you use `Handle<T>` to refer to nodes and resources. This helps avoid memory issues safely.
+
+### 5. **Resource Manager**
+Used to load assets (models, textures, sounds) from disk.
+
+### 6. **Game Loop**
+You update your game every frame inside the loop. You can handle input, move objects, check collisions, etc.
 
 ---
 
-## 🚀 Prerequisites
+## 🚀 Let’s Make a Simple App (Hello Cube!)
 
-Before we begin, ensure you have the following installed:
+We'll make a basic app that shows a 3D cube on screen.
 
-1. **Rust**: Install from [https://rustup.rs](https://rustup.rs)
-2. **A code editor**: VS Code or JetBrains RustRover are good choices.
-3. **Git**: Required for some asset tools (optional but recommended).
-
----
-
-## 📦 Step 1: Create a New Rust Project
-
-Open your terminal and run:
+### Step 1: Create a New Rust Project
 
 ```bash
-cargo new my_fyrox_game
-cd my_fyrox_game
+cargo new hello_fyrox
+cd hello_fyrox
 ```
 
-Then add `fyrox` to your `Cargo.toml`:
+### Step 2: Add Fyrox to `Cargo.toml`
 
 ```toml
 [dependencies]
-fyrox = "0.36"  # Or check latest version on crates.io
+fyrox = "0.37" # Use latest version if needed
 ```
 
-> ⚠️ Make sure to use the correct version. You can find the latest at [crates.io/crates/fyrox](https://crates.io/crates/fyrox)
+### Step 3: Write Some Code
 
----
-
-## 🧪 Step 2: Minimal Working Example
-
-Replace the contents of `src/main.rs` with this minimal example that creates a window and adds a 3D cube:
+Replace contents of `main.rs` with this:
 
 ```rust
 use fyrox::{
-    core::{color::Color, pool::Handle},
-    engine::{resource_manager::ResourceManager, Engine, SerializationContext},
     event_loop::EventLoop,
-    scene::{
-        base::BaseBuilder,
-        camera::CameraBuilder,
-        mesh::MeshBuilder,
-        node::Node,
-        transform::TransformBuilder,
-        Scene,
-    },
-    plugin::{Plugin, PluginContext, PluginRegistrationContext},
+    engine::{Engine, EngineInitParams},
+    scene::{Scene},
+    plugin::{Plugin, PluginContext},
+    asset::ResourceManager,
+    scene::base::BaseBuilder,
+    scene::node::Node,
+    scene::camera::CameraBuilder,
+    scene::mesh::MeshBuilder,
+    scene::mesh::shape::CubeBuilder,
+    core::pool::Handle,
 };
 
 struct Game {
-    scene: Handle<Scene>,
+    cube: Handle<Node>,
 }
 
 impl Plugin for Game {
-    fn on_register(&mut self, _context: PluginRegistrationContext) {
-        // Called once during registration
-    }
-
     fn init(&mut self, context: PluginContext) {
-        // Setup your game here
-        let mut scene = Scene::new();
+        // Set up camera
+        CameraBuilder::new(BaseBuilder::new()).build(context.scene);
 
-        // Add a camera
-        CameraBuilder::new(
-            BaseBuilder::new().with_local_transform(
-                TransformBuilder::new()
-                    .with_local_position([0.0, 5.0, -10.0].into())
-                    .build(),
-            ),
+        // Create a red cube
+        self.cube = MeshBuilder::new(
+            BaseBuilder::new(),
+            CubeBuilder::new().build(context.geometry_cache.clone()),
         )
-        .build(&mut scene.graph);
-
-        // Add a cube
-        MeshBuilder::new(BaseBuilder::new())
-            .with_cast_shadows(true)
-            .build(&mut scene.graph);
-
-        self.scene = context.scenes.add(scene);
+        .with_diffuse_texture(Some("data/textures/red.png".into()))
+        .build(context.scene);
     }
 
     fn update(&mut self, _context: PluginContext) {
-        // Game logic goes here
+        // Optional: Move cube or do logic here
     }
 }
 
 fn main() {
     let event_loop = EventLoop::new();
-    let graphics_context = fyrox::platform::GraphicsContext::new(event_loop.create_window("My Fyrox Game", Default::default()), None).unwrap();
-    
-    let serialization_context = Arc::new(SerializationContext::new());
-    let mut engine = Engine::new(graphics_context, serialization_context).unwrap();
+    let mut engine = Engine::new(EngineInitParams::new("Hello Fyrox", &event_loop).unwrap());
 
-    let game = Game {
-        scene: Default::default(),
-    };
+    // Load a texture
+    let resource_manager: ResourceManager = engine.resource_manager.clone();
 
-    engine.run(game);
+    // Add our plugin
+    engine.add_plugin(Game { cube: Default::default() });
+
+    // Run the main loop
+    event_loop.run(move |event, _, control_flow| {
+        engine.update(event, control_flow);
+    });
 }
 ```
 
+### Step 4: Add a Texture
+
+Create a folder called `data/textures`, and put a file named `red.png` there. You can use any red image or create one using a paint tool.
+
 ---
 
-## ▶️ Step 3: Run Your Game
-
-In your terminal:
+## 🕹️ Running Your Game
 
 ```bash
 cargo run
 ```
 
-You should see a window titled “My Fyrox Game” with a cube rendered in 3D space!
+If everything works, you’ll see a red cube in a window!
 
 ---
 
-## 🎮 Controls & Interaction
+## 📚 Learn More (Easy Resources)
 
-By default, Fyrox provides basic controls via the keyboard/mouse:
-
-- **WASD + Mouse Look**: Move and look around (camera controller not included by default yet)
-- **Mouse Wheel**: Zoom in/out
-
-To get full navigation, you can use the built-in `orbit camera controller`, which we'll cover next.
+- [Fyrox GitHub](https://github.com/FyroxEngine/Fyrox)
+- [Fyrox Book (Documentation)](https://docs.fyrox.rs/)
+- [YouTube tutorials by the creator](https://www.youtube.com/@MolchDev)
+- [Discord Server](https://discord.gg/KkKZYxgNqU) – Ask questions live!
 
 ---
 
-## 🕹️ Step 4: Add Orbit Camera Controller
+## 🧠 Tips to Keep Learning
 
-Add this inside your `init()` method after creating the camera:
-
-```rust
-use fyrox::scene::camera::Projection;
-use fyrox::gui::UserInterface;
-
-// Replace the camera creation with:
-let camera_handle = CameraBuilder::new(
-    BaseBuilder::new()
-        .with_local_transform(
-            TransformBuilder::new()
-                .with_local_position([0.0, 5.0, -10.0].into())
-                .build(),
-        )
-).with_projection(Projection::perspective_fov(std::f32::consts::FRAC_PI_3, 1.333, 0.1, 1000.0))
-.build(&mut scene.graph);
-
-// Enable orbit controller
-engine.user_interfaces.first_mut().send_ui_message(
-    fyrox::gui::message::UiMessage::camera(
-        camera_handle,
-        fyrox::gui::camera::CameraMessage::orbit_mode(true),
-    )
-);
-```
-
-Now you can move the camera with mouse drag + scroll wheel!
+- Start small: try moving the cube with keyboard input.
+- Try loading a `.fbx` or `.glb` model.
+- Add lighting and shadows.
+- Explore the visual editor once you're comfortable with code.
 
 ---
 
-## 🖼️ Step 5: Load a Model (e.g., glTF)
+## ✅ Summary
 
-### Add a model file
-
-Place a `.gltf` or `.fbx` model in your project folder under `data/models/`.
-
-Example: `data/models/sphere.gltf`
-
-### Load the model in your scene
-
-Inside `init()`:
-
-```rust
-let resource_manager = context.serialization_context.resource_manager.clone();
-
-resource_manager.request_model("data/models/sphere.gltf").await.unwrap();
-let model = resource_manager.model("data/models/sphere.gltf").unwrap();
-
-model.instantiate(&mut scene);
-```
-
-You’ll need to `await` the load — so wrap your `init()` logic in an async block if needed.
+| Concept | Description |
+|--------|-------------|
+| `Engine` | Main object running everything |
+| `Scene` | Container for all game objects |
+| `Node` | An object in the scene (cube, camera, etc.) |
+| `Handle<Node>` | How you refer to nodes |
+| `Plugin` | Where you write your game logic |
+| `Resource Manager` | Loads textures/models |
+| `Game Loop` | Runs every frame |
 
 ---
 
-## 📁 Asset Pipeline Tips
+Would you like to learn how to:
+- Add player movement?
+- Load a 3D model?
+- Add UI?
+- Use the Fyrox Editor?
 
-Fyrox supports many assets:
-
-| Type       | Supported Formats         |
-|------------|---------------------------|
-| Models     | glTF 2.0, FBX             |
-| Textures   | PNG, JPEG, DDS            |
-| Audio      | WAV, MP3                  |
-| Animations | Embedded in glTF/FBX      |
-
-Use `fyrox::plugin::PluginContext::serialization_context.resource_manager` to load them.
-
----
-
-## 🧰 Tools
-
-Fyrox has its own editor: [Fyroxed](https://github.com/FyroxEngine/Fyroxed)
-
-- Drag-and-drop scene editing
-- Visual scripting (coming soon)
-- Material editor
-- Animation timeline
-
-You can build scenes visually and load them in your game like this:
-
-```rust
-let scene = context.serialization_context.resource_manager.request_scene("data/scenes/level.rgs");
-```
-
----
-
-## 🧩 Plugins System
-
-Fyrox uses a **plugin architecture**, allowing you to modularize your game logic.
-
-Each plugin can manage:
-- Scene updates
-- Input handling
-- Resource loading
-- GUI elements
-
-This helps scale large projects cleanly.
-
----
-
-## 🧑‍💻 Community & Resources
-
-- **GitHub**: https://github.com/FyroxEngine/Fyrox
-- **Discord**: https://discord.gg/ZWksm2Kymw
-- **Examples**: https://github.com/FyroxEngine/Fyrox/tree/master/examples
-- **Documentation**: https://docs.fyrox.rs/
-
----
-
-## ✅ Summary Checklist
-
-| Task                        | Status |
-|----------------------------|--------|
-| Set up Rust environment    | ✅     |
-| Created Cargo project      | ✅     |
-| Added `fyrox` as dependency| ✅     |
-| Built a simple 3D scene    | ✅     |
-| Added orbit camera         | ✅     |
-| Loaded a model             | ✅     |
-| Explored plugins           | ✅     |
-
----
-
-## 🧠 Next Steps
-
-Once comfortable with basics, try:
-
-- Adding physics with `nphysics` (integrated into Fyrox)
-- Creating a GUI HUD (using fyrox’s built-in UI)
-- Implementing player movement/controller
-- Loading levels from editor exports
-- Multiplayer networking with `leafwing` or `bevy-netcode`
-
----
-
-Next: create a **template project** structure for a Fyrox game and make a **simple FPS controller**, **UI menu**, or **enemy AI**?
+Let me know what you want next! 😊
