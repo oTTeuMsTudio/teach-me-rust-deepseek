@@ -1,4 +1,4 @@
-# Start game development in Rust using the `fyrox` engine
+# Start game development in Rust using `fyrox` engine
 
 ---
 
