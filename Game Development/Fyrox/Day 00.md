@@ -1,4 +1,4 @@
-Sure! Let's learn **Fyrox.rs** in a simple and easy way. 🎮
+# Learn Fyrox.rs
 
 ---
 
@@ -171,10 +171,9 @@ If everything works, you’ll see a red cube in a window!
 
 ---
 
-Would you like to learn how to:
-- Add player movement?
-- Load a 3D model?
-- Add UI?
-- Use the Fyrox Editor?
+Next:
+- Add player movement
+- Load a 3D model
+- Add UI
+- Use the Fyrox Editor
 
-Let me know what you want next! 😊
