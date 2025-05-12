@@ -1,4 +1,4 @@
-# Let's walk through creating a 2D platformer game using the **Fyrox engine** step by step, 
+Let's walk through creating a 2D platformer game using the **Fyrox engine** step by step, 
 
 following the [Fyrox Book - Platformer Part 1](https://fyrox-book.github.io/tutorials/platformer/part1.html) tutorial. This will be very detailed and precise.
 
