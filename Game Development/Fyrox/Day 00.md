@@ -281,4 +281,4 @@ Once comfortable with basics, try:
 
 ---
 
-Would you like me to create a **template project** structure for a Fyrox game? Or help you make a **simple FPS controller**, **UI menu**, or **enemy AI**?
+Next: create a **template project** structure for a Fyrox game and make a **simple FPS controller**, **UI menu**, or **enemy AI**?
