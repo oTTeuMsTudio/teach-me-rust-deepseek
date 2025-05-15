@@ -1,163 +1,203 @@
-Let’s break down what [Easel](https://easel.games/) is and how you can start learning to use it.
+Learn and use [Easel](https://easel.games/), the 2D game programming language designed for making multiplayer games easily. This guide assumes no prior experience and will take you from setup to building your first game.
 
 ---
 
-## 🧠 What is Easel?
+## 🧩 Step 1: Understand What Easel Is
 
-**Easel** is a **2D game programming language** designed to make creating games—especially **multiplayer games**—simple, fun, and accessible for both beginners and experienced developers. It abstracts away many of the complex parts of game development like networking, synchronization, and game loops so you can focus on building your game.
-
----
-
-## 🎮 Key Features of Easel
-
-### 1. **Effortless Multiplayer**
-- You code as if all players are in the same world.
-- Easel handles the hard stuff: **networking**, **synchronization**, and even **rollback netcode** (for smooth online play).
-- No need to manage client-server architecture manually.
-
-### 2. **Streamlined Programming Model**
-- Uses a **hierarchical structure**, **reactive style**, and **behaviors** model to simplify game logic.
-- Makes it easy to write clean, readable, and maintainable code.
-
-### 3. **Beginner-Friendly**
-- Designed to be simple enough for first-time coders.
-- Fun and engaging because you're making games right from the start.
-
-### 4. **All-in-One Game Development System**
-- Includes tools for:
-  - Graphics
-  - Audio
-  - Physics
-  - UI
-- Has an **online editor** so you can start coding instantly without installing anything.
-- Games are hosted on Easel's servers and playable in any browser.
+### What is Easel?
+- **Easel** is a **2D game programming language** that makes creating **multiplayer games** as easy as creating singleplayer ones.
+- It handles all networking, synchronization, and rollback netcode automatically.
+- Designed with **beginners** and **experts** in mind.
+- Uses **Behaviors**, **Reactivity**, and **Hierarchy** to make code clean and readable.
 
 ---
 
-## 🧱 Core Concepts in Easel
+## 🚀 Step 2: Get Started (No Setup Needed)
+
+### Access the Editor
+1. Go to: https://easel.games/
+2. Click on **"Start Making Games"** or **"Editor"** (if available).
+3. You’ll be taken to the **online game editor**.
+   - No downloads or installations required.
+   - Everything works in your browser!
+
+---
+
+## 📁 Step 3: Explore the Interface
+
+Once inside the editor:
+
+### Main Components:
+1. **Project Explorer**: Lists all files and folders in your project.
+2. **Code Editor**: Where you write your Easel code.
+3. **Game Preview**: Shows what your game looks like while it runs.
+4. **Toolbox / Palette**: Contains assets, components, and tools.
+
+---
+
+## 🧱 Step 4: Learn the Basic Concepts of Easel
+
+Easel uses a unique approach to game development based on three pillars:
 
 ### 1. **Behaviors**
-Behaviors let you define step-by-step sequences that objects in your game follow. Think of them like scripts or AI routines that control how something acts over time.
-
-**Example (pseudo-code):**
-```easel
-behavior PlayerMovement {
-  every frame {
-    if (keyPressed("left")) {
-      player.x -= 5;
-    }
-    if (keyPressed("right")) {
-      player.x += 5;
-    }
-  }
-}
-```
+- Behaviors are sequences of steps your game objects can do.
+- Think of them as "scripts" or functions that run over time.
+- Example: “When this enemy sees the player, chase them.”
 
 ### 2. **Reactivity**
-React to changes in your game using a declarative style. When something happens (like a collision), your code reacts automatically.
-
-**Example (pseudo-code):**
-```easel
-when (player collides with enemy) {
-  player.health -= 10;
-  show "Game Over" if player.health <= 0;
-}
-```
+- Define how your game should react to changes.
+- Use `on` statements to trigger actions when something happens.
+- Example: `on collision with Player => destroy self`
 
 ### 3. **Hierarchy**
-Organize your game into nested structures that mirror real-world relationships (e.g., a car has wheels, which have properties).
+- Organize your game objects into parent-child relationships.
+- Makes it easier to manage groups of objects (like a car with wheels, or a spaceship with turrets).
 
-**Example (pseudo-code):**
+---
+
+## 🎮 Step 5: Make Your First Game – A Multiplayer Bouncing Ball
+
+Let’s create a simple game where players see a ball bounce around the screen — and everyone sees the same thing thanks to Easel's built-in multiplayer.
+
+### Step 5.1: Create a New Project
+1. In the editor, click **New Project**.
+2. Name it something like **"Bouncing Ball"**.
+
+### Step 5.2: Add a Ball Object
+In the code editor, type:
+
 ```easel
-object Car {
-  object Wheel {
-    property radius = 10;
-    behavior Rotate {
-      every frame { rotate by speed; }
+object Ball {
+  // Appearance
+  shape = circle(20)
+  color = red
+
+  // Position
+  x = 100
+  y = 100
+
+  // Velocity
+  vx = 100
+  vy = 100
+
+  // Behavior
+  behavior BounceAround {
+    loop {
+      move by (vx * dt, vy * dt)
+
+      if (x < 0 || x > screen.width) {
+        vx = -vx
+      }
+
+      if (y < 0 || y > screen.height) {
+        vy = -vy
+      }
+
+      wait
     }
   }
 }
 ```
 
+### Step 5.3: Run the Game
+1. Click the **Run** button.
+2. You should see a red ball bouncing around the screen.
+
+### Step 5.4: Play with Friends (Multiplayer!)
+1. Click the **Share** button in the editor.
+2. Copy the link and send it to a friend.
+3. Both of you will see the same bouncing ball — in real-time!
+
+> ✅ That’s multiplayer working automatically. You didn’t have to write any networking code!
+
 ---
 
-## 🛠️ Getting Started with Easel
+## 🛠️ Step 6: Learn More Features
 
-### Step 1: Go to the Editor
-Visit: https://editor.easel.games/  
-No installation needed—you can start coding right away in your browser!
+Now that you’ve made a basic game, let’s expand your knowledge.
 
-### Step 2: Create Your First Game Object
-Try creating a simple object and moving it around.
+### Add a Player-Controlled Character
 
-**Example: Moving a square**
 ```easel
 object Player {
-  shape = rectangle(20, 20);
-  color = red;
+  shape = square(30)
+  color = blue
 
-  behavior Move {
-    every frame {
-      if (keyPressed("left")) x -= 5;
-      if (keyPressed("right")) x += 5;
+  x = 200
+  y = 200
+
+  behavior MoveWithArrowKeys {
+    loop {
+      if (key.left.down) { x -= 200 * dt }
+      if (key.right.down) { x += 200 * dt }
+      if (key.up.down) { y -= 200 * dt }
+      if (key.down.down) { y += 200 * dt }
+
+      wait
     }
   }
 }
 ```
 
-### Step 3: Add Multiplayer Support
-To make your game multiplayer, just add:
-
-```easel
-multiplayer = true;
-```
-
-Now anyone can join your game through a link and interact with the shared world.
+This creates a blue square you can control with arrow keys — and again, this works across all players.
 
 ---
 
-## 📚 Resources to Learn More
+## 🧪 Step 7: Test and Debug
 
-- **Official Website**: https://easel.games/
-- **Online Editor**: https://editor.easel.games/
-- **Community & Examples**: Join their Discord or look at example games in the editor.
-
----
-
-## 💡 Tips for Learning Easel
-
-- Start small: Make a single-player platformer or top-down shooter.
-- Experiment with behaviors and reactivity.
-- Try adding multiplayer support once you're comfortable.
-- Read others’ code in the editor to see how they solve problems.
-- Ask questions in the community—many people love helping new users!
+Use these tools to test your game:
+- **Live Reloading**: Any change in code updates the running game instantly.
+- **Print Statements**:
+  ```easel
+  print("Player x:", player.x)
+  ```
+- **Pause & Inspect**: Pause the game and inspect object properties.
 
 ---
 
-## 🧩 Example: Simple Multiplayer Game
+## 💾 Step 8: Publish Your Game
 
-Here’s a basic multiplayer game where each player controls a colored square:
+Once your game is done:
 
-```easel
-multiplayer = true;
-
-object Player {
-  shape = rectangle(30, 30);
-  color = randomColor();
-
-  behavior Movement {
-    every frame {
-      if (keyPressed("left")) x -= 5;
-      if (keyPressed("right")) x += 5;
-      if (keyPressed("up")) y -= 5;
-      if (keyPressed("down")) y += 5;
-    }
-  }
-}
-```
-
-This will create a unique player for each person who joins, each with their own color and movement.
+1. Click **Publish** in the editor.
+2. Choose a name and description.
+3. Easel will host your game and give you a shareable link.
+4. Anyone with the link can play your game — no download needed!
 
 ---
 
-Next: more specific tutorial or help with a particular type of game
+## 📚 Step 9: Keep Learning with Resources
+
+### Official Resources:
+- **Tutorials**: https://easel.games/learn
+- **Documentation**: https://docs.easel.games/
+- **Examples**: Look for sample projects in the editor (often labeled “Templates” or “Examples”).
+- **Community Discord**: Join their community to ask questions and share ideas.
+
+---
+
+## 🏗️ Step 10: Advanced Tips (For Experts)
+
+If you're experienced with coding:
+
+- Use **external editors** like VS Code with Easel (via CLI tools).
+- Build complex systems using **signals**, **components**, and **state machines**.
+- Leverage **rollback netcode** for responsive gameplay.
+- Customize **physics**, **UI**, **audio**, and more.
+
+---
+
+## ✅ Summary Checklist
+
+| Step | Task |
+|------|------|
+| ✅ | Understand what Easel is |
+| ✅ | Open the online editor |
+| ✅ | Learn Behaviors, Reactivity, Hierarchy |
+| ✅ | Create a bouncing ball |
+| ✅ | Add a player-controlled character |
+| ✅ | Share your game with friends |
+| ✅ | Debug and publish |
+| ✅ | Explore tutorials and docs |
+
+---
