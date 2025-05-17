@@ -1,203 +1,118 @@
-Learn and use [Easel](https://easel.games/), the 2D game programming language designed for making multiplayer games easily. This guide assumes no prior experience and will take you from setup to building your first game.
+Let’s get you started building your first game using **[Easel.games](https://easel.games/)**. Since Easel uses a **visual scripting system** (similar to Scratch or Blockly), it's beginner-friendly and doesn’t require you to write traditional code.
 
 ---
 
-## 🧩 Step 1: Understand What Easel Is
+## 🎮 Step-by-Step: Create Your First Game on Easel
 
-### What is Easel?
-- **Easel** is a **2D game programming language** that makes creating **multiplayer games** as easy as creating singleplayer ones.
-- It handles all networking, synchronization, and rollback netcode automatically.
-- Designed with **beginners** and **experts** in mind.
-- Uses **Behaviors**, **Reactivity**, and **Hierarchy** to make code clean and readable.
+### 🔧 Step 1: Go to the Editor
+1. Open your browser and go to [https://easel.games/editor](https://easel.games/editor)
+2. You should see the **Easel editor interface** — no login required!
 
 ---
 
-## 🚀 Step 2: Get Started (No Setup Needed)
+### 🧱 Step 2: Understand the Interface
 
-### Access the Editor
-1. Go to: https://easel.games/
-2. Click on **"Start Making Games"** or **"Editor"** (if available).
-3. You’ll be taken to the **online game editor**.
-   - No downloads or installations required.
-   - Everything works in your browser!
+Here’s what you’ll see in the editor:
 
----
-
-## 📁 Step 3: Explore the Interface
-
-Once inside the editor:
-
-### Main Components:
-1. **Project Explorer**: Lists all files and folders in your project.
-2. **Code Editor**: Where you write your Easel code.
-3. **Game Preview**: Shows what your game looks like while it runs.
-4. **Toolbox / Palette**: Contains assets, components, and tools.
+- **Left Panel**: The **Toolbox** with blocks like:
+  - `Sprites`
+  - `Controls`
+  - `Events`
+  - `Variables`, etc.
+- **Center Panel**: This is where you **build your scripts** by dragging and snapping blocks together.
+- **Right Panel**: The **Game View**, showing how your game looks as it runs.
 
 ---
 
-## 🧱 Step 4: Learn the Basic Concepts of Easel
+### 🚀 Step 3: Make a Simple Clicker Game
 
-Easel uses a unique approach to game development based on three pillars:
+Let’s create a simple **clicker game** where clicking a sprite increases a score.
 
-### 1. **Behaviors**
-- Behaviors are sequences of steps your game objects can do.
-- Think of them as "scripts" or functions that run over time.
-- Example: “When this enemy sees the player, chase them.”
+#### 👇 Part A: Add a Sprite
 
-### 2. **Reactivity**
-- Define how your game should react to changes.
-- Use `on` statements to trigger actions when something happens.
-- Example: `on collision with Player => destroy self`
+1. In the **Toolbox**, click on `Sprites`.
+2. Drag the **“Add a new sprite”** block into the center panel.
+3. A new sprite will appear in the game view (a colored square or circle).
 
-### 3. **Hierarchy**
-- Organize your game objects into parent-child relationships.
-- Makes it easier to manage groups of objects (like a car with wheels, or a spaceship with turrets).
+> 💡 Tip: You can rename the sprite to something like “Button” for clarity.
 
 ---
 
-## 🎮 Step 5: Make Your First Game – A Multiplayer Bouncing Ball
+#### 👇 Part B: Create a Score Variable
 
-Let’s create a simple game where players see a ball bounce around the screen — and everyone sees the same thing thanks to Easel's built-in multiplayer.
+1. Click on the `Variables` category in the Toolbox.
+2. Drag out the **“Create variable”** block.
+3. Name the variable `score`.
 
-### Step 5.1: Create a New Project
-1. In the editor, click **New Project**.
-2. Name it something like **"Bouncing Ball"**.
+Now, you have a variable called `score` that you can use in your game.
 
-### Step 5.2: Add a Ball Object
-In the code editor, type:
+---
 
-```easel
-object Ball {
-  // Appearance
-  shape = circle(20)
-  color = red
+#### 👇 Part C: Make the Sprite Respond to Clicks
 
-  // Position
-  x = 100
-  y = 100
+1. From the `Events` category, drag the **“When this sprite is clicked”** block.
+2. Inside that block, do the following:
+   - From `Variables`, add the **“Change score by 1”** block.
+   - From `Sprites`, optionally add a **“Say ‘Clicked!’ for 1 sec”** block to give visual feedback.
 
-  // Velocity
-  vx = 100
-  vy = 100
+Your script should look like this:
 
-  // Behavior
-  behavior BounceAround {
-    loop {
-      move by (vx * dt, vy * dt)
-
-      if (x < 0 || x > screen.width) {
-        vx = -vx
-      }
-
-      if (y < 0 || y > screen.height) {
-        vy = -vy
-      }
-
-      wait
-    }
-  }
-}
+```plaintext
+When [Button] is clicked
+    change score by 1
+    say "Clicked!" for 1 second
 ```
 
-### Step 5.3: Run the Game
-1. Click the **Run** button.
-2. You should see a red ball bouncing around the screen.
+---
 
-### Step 5.4: Play with Friends (Multiplayer!)
-1. Click the **Share** button in the editor.
-2. Copy the link and send it to a friend.
-3. Both of you will see the same bouncing ball — in real-time!
+#### 👇 Part D: Display the Score
 
-> ✅ That’s multiplayer working automatically. You didn’t have to write any networking code!
+1. From `Variables`, drag the **“Show variable score”** block anywhere in the workspace.
+2. The score will now appear on the screen when you run the game.
 
 ---
 
-## 🛠️ Step 6: Learn More Features
+### ▶️ Step 4: Test Your Game
 
-Now that you’ve made a basic game, let’s expand your knowledge.
+Click the **▶ Run** button at the top of the editor.
 
-### Add a Player-Controlled Character
-
-```easel
-object Player {
-  shape = square(30)
-  color = blue
-
-  x = 200
-  y = 200
-
-  behavior MoveWithArrowKeys {
-    loop {
-      if (key.left.down) { x -= 200 * dt }
-      if (key.right.down) { x += 200 * dt }
-      if (key.up.down) { y -= 200 * dt }
-      if (key.down.down) { y += 200 * dt }
-
-      wait
-    }
-  }
-}
-```
-
-This creates a blue square you can control with arrow keys — and again, this works across all players.
+Try clicking on your sprite. The score should increase and show a message saying “Clicked!”
 
 ---
 
-## 🧪 Step 7: Test and Debug
+### ☁️ Step 5: Save & Publish Your Game
 
-Use these tools to test your game:
-- **Live Reloading**: Any change in code updates the running game instantly.
-- **Print Statements**:
-  ```easel
-  print("Player x:", player.x)
-  ```
-- **Pause & Inspect**: Pause the game and inspect object properties.
+1. Click the **Save** icon (floppy disk) in the top menu.
+2. Give your project a name like “My First Clicker Game”.
+3. When you're ready, click **Publish** (cloud icon).
+4. Easel will generate a **shareable link** you can send to friends or embed on a website.
 
 ---
 
-## 💾 Step 8: Publish Your Game
+### 📤 Bonus: Share It Online
 
-Once your game is done:
+Once published:
+- Copy the link from the address bar.
+- Share it on social media, Discord, or platforms like itch.io.
 
-1. Click **Publish** in the editor.
-2. Choose a name and description.
-3. Easel will host your game and give you a shareable link.
-4. Anyone with the link can play your game — no download needed!
-
----
-
-## 📚 Step 9: Keep Learning with Resources
-
-### Official Resources:
-- **Tutorials**: https://easel.games/learn
-- **Documentation**: https://docs.easel.games/
-- **Examples**: Look for sample projects in the editor (often labeled “Templates” or “Examples”).
-- **Community Discord**: Join their community to ask questions and share ideas.
+You can also:
+- Embed it on a blog or portfolio site using the **Embed Code** option.
+- Submit it to game jams or share it in the Easel Discord community (if available).
 
 ---
 
-## 🏗️ Step 10: Advanced Tips (For Experts)
+## 🧠 Want to Learn More?
 
-If you're experienced with coding:
+Here are some next steps after your first clicker game:
 
-- Use **external editors** like VS Code with Easel (via CLI tools).
-- Build complex systems using **signals**, **components**, and **state machines**.
-- Leverage **rollback netcode** for responsive gameplay.
-- Customize **physics**, **UI**, **audio**, and more.
-
----
-
-## ✅ Summary Checklist
-
-| Step | Task |
-|------|------|
-| ✅ | Understand what Easel is |
-| ✅ | Open the online editor |
-| ✅ | Learn Behaviors, Reactivity, Hierarchy |
-| ✅ | Create a bouncing ball |
-| ✅ | Add a player-controlled character |
-| ✅ | Share your game with friends |
-| ✅ | Debug and publish |
-| ✅ | Explore tutorials and docs |
+| Goal | How to Do It |
+|------|--------------|
+| Add sound effects | Use the `Sound` category in the Toolbox |
+| Add multiple sprites | Drag more sprites from the `Sprites` category |
+| Make enemies move | Use `Motion` blocks and `Loops` |
+| Build levels | Use `Variables` or `Scenes` if available |
+| Make multiplayer games | Easel supports real-time multiplayer out-of-the-box! |
 
 ---
+
+Next: a video tutorial-style walkthrough or try making a different type of game (like platformer, shooter, puzzle)
