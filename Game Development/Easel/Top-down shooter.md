@@ -1,4 +1,4 @@
-Let’s build a **simple top-down shooter** in Easel. This will be a 2D game where players can move around with arrow keys or WASD, shoot bullets with the spacebar or mouse, and enemies spawn to chase them.
+1. Let’s build a **simple top-down shooter** in Easel. This will be a 2D game where players can move around with arrow keys or WASD, shoot bullets with the spacebar or mouse, and enemies spawn to chase them.
 
 Since Easel supports real-time multiplayer out of the box, this game could easily be expanded for co-op or competitive play later on!
 
@@ -208,7 +208,7 @@ Here are some ideas to improve your top-down shooter:
 
 ---
 
-Next: **score tracking**, **health**, or making this a **co-op shooter**
+2. Next: **score tracking**, **health**, or making this a **co-op shooter**
 
 Awesome! Let’s take your **top-down shooter** and turn it into a **real-time co-op shooter**, where multiple players can join, move independently, shoot enemies, and survive together.
 
