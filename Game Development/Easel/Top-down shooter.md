@@ -209,7 +209,7 @@ Here are some ideas to improve your top-down shooter:
 
 ---
 
-# 2. Next: **score tracking**, **health**, or making this a **co-op shooter**
+# 2. Next: making this a **co-op shooter**
 
 Awesome! Let’s take your **top-down shooter** and turn it into a **real-time co-op shooter**, where multiple players can join, move independently, shoot enemies, and survive together.
 
