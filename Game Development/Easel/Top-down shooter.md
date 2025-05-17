@@ -395,4 +395,193 @@ Once you're happy with your co-op shooter:
 
 ---
 
-Next: adding **chat**, **power-ups**, or turning this into a **zombie survival co-op game**
+# 3. Next: adding **chat**, **power-ups**
+
+You're building an awesome **co-op shooter** in Easel — and now you want to add **chat** and **power-ups**! These features will make your game even more fun and social for players.
+
+Let’s dive into how to implement both features step-by-step using Easel's visual scripting system.
+
+---
+
+# 💬 Part 1: Add Real-Time Chat
+
+Easel doesn’t have a built-in chat block, but we can simulate a basic **text message system** using global variables and sprite text bubbles.
+
+---
+
+## 🧩 Step 1: Create a Global Message Log
+
+We’ll store messages in a list so all players can see what others typed.
+
+### From the `Variables` category:
+
+```plaintext
+When Game Starts
+    create global variable "chatMessages"
+    set chatMessages to [ ]
+```
+
+This creates an empty list that will hold all chat messages.
+
+---
+
+## ✏️ Step 2: Let Players Send Messages (Simulated)
+
+Since Easel doesn’t support real keyboard input for chat natively yet, we'll simulate sending a message with a key press (like pressing `T`).
+
+### From the `Controls` category:
+
+```plaintext
+When T key is pressed
+    ask "Enter your message:"
+    append item "Player: " + answer to chatMessages
+```
+
+> 💡 This opens a small prompt box where players can type a message. It then adds it to the global chat log.
+
+---
+
+## 👁️ Step 3: Display Messages on Screen
+
+Now let’s show the chat log at the bottom of the screen.
+
+Create a new script (not attached to any sprite):
+
+```plaintext
+When Game Starts
+    repeat forever
+        clear chat display
+        set y position to -170
+        for each item in chatMessages
+            say item at (x=-240, y=current y)
+            change y by -20
+        wait 5 seconds
+```
+
+> 💡 You can adjust positioning and timing to make it scroll or fade out after a while.
+
+Alternatively, use a simpler version:
+
+```plaintext
+When Game Starts
+    repeat forever
+        say last item in chatMessages at (x=-240, y=-180)
+        wait 5 seconds
+```
+
+This shows only the latest message, like a chat bubble at the bottom-left.
+
+---
+
+# ⚡ Part 2: Add Power-Ups
+
+Power-ups are collectible items that give players temporary boosts like faster shooting, speed increase, or health.
+
+Let’s add a simple **speed boost power-up**.
+
+---
+
+## 🎁 Step 1: Create the Power-Up Sprite
+
+From the `Sprites` category:
+
+- Drag “Add new sprite” and name it `SpeedBoost`.
+- Change its shape to a glowing circle or star.
+- Set its color to something eye-catching like yellow or blue.
+
+---
+
+## 🌐 Step 2: Make It Appear Randomly
+
+Create a new script outside any sprite:
+
+```plaintext
+When Game Starts
+    repeat forever
+        wait random 10-20 seconds
+        create SpeedBoost at random position
+        set SpeedBoost global visibility
+```
+
+Now the power-up appears randomly across the map.
+
+---
+
+## 🏃‍♂️ Step 3: Trigger the Boost When Collected
+
+In the `SpeedBoost` sprite:
+
+```plaintext
+When SpeedBoost touches Player
+    say "Speed Boost!" for 2 seconds
+    change Player speed by 100 for 10 seconds
+    delete this sprite
+```
+
+> 💡 If the “change Player speed” block isn't available, simulate it like this:
+
+```plaintext
+When SpeedBoost touches Player
+    say "Speed Boost!" for 2 seconds
+    set x speed to 350 if right key is pressed
+    set x speed to -350 if left key is pressed
+    set y speed to 350 if up/down key is pressed
+    wait 10 seconds
+    reset speeds to normal
+    delete this sprite
+```
+
+Or just keep it simple:
+
+```plaintext
+When SpeedBoost touches Player
+    say "Speed Boost!" for 2 seconds
+    move Player forward 10 extra pixels per step for 10 seconds
+    delete this sprite
+```
+
+---
+
+## 🔄 Step 4: Optional – Add More Power-Ups
+
+Try creating more power-ups like:
+
+| Power-Up | Effect |
+|----------|--------|
+| `HealthPack` | Increase player health |
+| `DoubleDamage` | Bullets do double damage |
+| `RapidFire` | Bullets fire twice as fast |
+| `Shield` | Invincibility for 5 seconds |
+
+Just follow the same pattern:
+1. Create a new sprite.
+2. Spawn it randomly.
+3. Give it a visual effect when touched.
+4. Apply a temporary boost.
+
+---
+
+# ✅ Final Features in Your Co-op Shooter
+
+✅ Multiplayer  
+✅ Shared enemies and bullets  
+✅ Team score tracking  
+✅ Shared health/lives  
+✅ Real-time chat (simulated)  
+✅ Power-ups (speed, health, etc.)
+
+---
+
+# 📦 Bonus Ideas
+
+| Feature | How to Add It |
+|--------|----------------|
+| Sound effects | Use `Sound` blocks when collecting power-ups or chatting |
+| Chat cooldown | Prevent spamming with a timer |
+| Limited ammo | Add reload mechanics |
+| Scoreboard | Show top scorers using lists |
+| Boss enemy | Add a special enemy that drops rare power-ups |
+
+---
+
+# 4. Next: adding **sound**, **scoreboard**
