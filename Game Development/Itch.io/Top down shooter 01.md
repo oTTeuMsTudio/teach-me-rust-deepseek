@@ -1,4 +1,6 @@
-Awesome! Let’s build a **top-down shooter game using Easel**, and then I’ll show you how to export it and publish it on **itch.io**.
+# Top-down shooter game using Easel, 
+
+and then I’ll show you how to export it and publish it on **itch.io**.
 
 We’ll make a simple version with:
 - A player that moves with arrow keys or WASD
@@ -221,11 +223,8 @@ Once you're happy with your game:
 
 ---
 
-## 📦 Want More?
+## 📦 Next:
+- A downloadable ZIP template
+- Help adding sound effects or background music
+- Instructions to add multiplayer support via Easel
 
-Would you like:
-- A downloadable ZIP template?
-- Help adding sound effects or background music?
-- Instructions to add multiplayer support via Easel?
-
-Let me know and I’ll help you go further!
